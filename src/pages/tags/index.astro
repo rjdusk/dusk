@@ -8,11 +8,14 @@ const pageTitle = "Tag Index";
 
 <BaseLayout pageTitle={pageTitle}>
   <section>
-    <div class="px-8 md:px-12 mx-auto max-w-7xl py-12 lg:py-32">
-      <ol role="list" class="flex flex-wrap gap-3">
+    <div class="px-8 md:px-12 pt-12 lg:pt-48 2xl:max-w-7xl mx-auto">
+      <h1 class="text-gray-900 text-4xl lg:text-6xl font-display max-w-6xl">
+        All tags
+      </h1>
+      <ol role="list" class="flex flex-col gap-3 mt-8">
         {
           tags.map((tag) => (
-            <li class="inline-flex items-center border rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ">
+            <li class="inline-flex items-center  text-xs uppercase font-medium text-gray-900">
               <a href={`/tags/${tag}`}>{tag}</a>
             </li>
           ))

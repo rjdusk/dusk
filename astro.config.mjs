@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
-
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx"; // VS Code Theme is: Sequoiatheme.com
 
 export default defineConfig({
+  
   markdown: {
     drafts: true,
     shikiConfig: {

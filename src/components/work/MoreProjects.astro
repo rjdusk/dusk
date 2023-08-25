@@ -1,0 +1,48 @@
+---
+import { moreprojects } from "../../data/moreprojects.json";
+---
+
+<section>
+  <div class="px-8 md:px-12 py-12 lg:py-24 2xl:max-w-7xl mx-auto">
+    <h1 class="text-gray-900 text-4xl lg:text-4xl font-display max-w-6xl">
+      Some more work
+    </h1>
+    <div class="flex flex-col gap-4 mt-8">
+      <div
+        class="lg:grid grid-cols-1 lg:grid-cols-3 gap-8 items-start pb-4 border-b hidden">
+        <p class="text-gray-900 text-2xl font-display">Year</p>
+        <div>
+          <div class="flex flex-col md:flex-row justify-between">
+            <p class="text-gray-900 font-semibold uppercase">Client</p>
+          </div>
+        </div>
+        <div>
+          <p class="text-gray-500 font-normal">Project Type</p>
+        </div>
+      </div>
+      {
+        moreprojects.map((template) => (
+          <>
+            <a href={template.link}>
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-8 items-start">
+                <p class="text-gray-900 text-2xl font-display">
+                  {template.year}
+                </p>
+                <div>
+                  <div class="flex flex-col md:flex-row justify-between">
+                    <p class="text-gray-900 font-semibold uppercase">
+                      {template.client}
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-gray-500 font-normal">{template.type}</p>
+                </div>
+              </div>
+            </a>
+          </>
+        ))
+      }
+    </div>
+  </div>
+</section>
