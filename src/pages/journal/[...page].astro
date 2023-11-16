@@ -1,0 +1,86 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Latest from "@/components/entries/Latest.astro";
+import Entries from "@/components/entries/Entries.astro";
+import Pagination from "@/components/entries/Pagination.astro";
+
+const allPosts = await getCollection("posts");
+export async function getStaticPaths({ paginate }) {
+  const allPosts = (await getCollection("posts")).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+  const formattedPosts = allPosts.reverse();
+  return paginate(formattedPosts, {
+    pageSize: 5,
+  })
+}
+const { page } = Astro.props;
+const posts = (await getCollection("posts")).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+const pathname = new URL(Astro.request.url).pathname.split('/');
+const firstPath = pathname[1];
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+---
+
+<BaseLayout>
+  <section>
+    <div class="max-w-7xl mx-auto mb-8 px-4 lg:px-8">
+      {
+        page.data
+          .sort((a, b) => Date.parse(b.data.pubDate) - Date.parse(a.data.pubDate))
+          .slice(0,1)
+          .map((post) => (
+            <Latest
+              url={`/journal/${post.slug}/`}
+              title={post.data.title}
+              pubDate={post.data.pubDate}
+              description={post.data.description}
+              image={post.data.image.url}
+              alt={post.data.title}
+              position={posts.indexOf(post)}
+            />
+          )
+        )
+      }
+
+      <ol role="list" class="flex flex-wrap gap-3 mt-8">
+        {
+          tags.map((tag) => (
+            <li class="inline-flex items-center  text-xs uppercase font-medium text-gray-900 ">
+              <a href={`/journal/tags/${tag}`}>{tag}</a>
+            </li>
+          ))
+        }
+      </ol>
+
+      <ul class="grid grid-cols-1 divide-y divide-gray-100">
+        {
+          page.data
+            .sort((a, b) => Date.parse(b.data.pubDate) - Date.parse(a.data.pubDate))
+            .slice(1)
+            .map((post) => (
+              <Entries
+                url={`/journal/${post.slug}/`}
+                title={post.data.title}
+                pubDate={post.data.pubDate}
+                description={post.data.description}
+                image={post.data.image.url}
+                alt={post.data.title}
+                position={posts.indexOf(post)}
+              />
+            ))
+        }
+      </ul>
+
+      <div class="border-t border-gray-50 pt-8 flex justify-center">
+        <Pagination
+            length={page.lastPage}
+            currentUrl={page.url.current}
+            currentPage={page.currentPage}
+            firstUrl={`/${firstPath}`}
+            prevUrl={page.url.prev}
+            nextUrl={page.url.next}
+            lastUrl={`/${firstPath}/${page.lastPage}`}
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

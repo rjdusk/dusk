@@ -1,0 +1,29 @@
+---
+const { title, url, description, image, pubDate } = Astro.props;
+---
+<li class="py-16">
+	<article class="flex flex-wrap gap-8">
+		<a href={url} class="flex flex-none w-full items-center justify-between gap-8 group">
+			<h2 class="text-inherit leading-tight mb-0">{title}</h2>
+			<svg class="h-[2em] w-[2em] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 duration-200 ease-out text-inherit fill-current leading-none" viewBox="0 0 48 48">
+				<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="37" y1="14" x2="47" y2="24" />
+					<line x1="47" y1="24" x2="37" y2="34" />
+					<line x1="47" y1="24" x2="1.5" y2="24" />
+				</g>
+			</svg>
+		</a>
+		<p class="flex-1 text-current text-sm tracking-wider uppercase">
+			<time datetime={`${pubDate.toISOString()}`} class="pt-0 mb-0 text-current text-sm tracking-wider uppercase">
+				{`${
+				pubDate.toLocaleDateString('en-gb', {
+				year: 'numeric',
+				month: 'long',
+				day: '2-digit',
+				})
+				}`}
+			</time>
+		</p>
+		<p class="flex-1 text-current">{description}</p>
+	</article>
+</li>
