@@ -1,0 +1,97 @@
+---
+pubDate: 2018-01-26
+author: Rhys Jones
+title: Email providers for freelancers
+description: I've used various platforms over the years for email and calenders, ever since breaking up with Gmail and Google. This is a comparison of several email providers that are not in the Google ecosystem.
+
+image:
+  url: "./cover--email-providers.png"
+  alt: "Email tools can be like a black box"
+
+tags: ["email", "tools"]
+---
+import { Cloudinary } from 'astro-cloudinary-image';
+
+I've used various platforms over the past 4 years for email, ever since breaking up with Gmail and Google. Becoming more serious about how I communicate with clients, presenting a professional image and not having my data mined for various purposes, I decided it was high time to do some serious research into finding a suitable replacement.
+
+#### My list of requirements
+* Email-with custom domain support
+* Filtering rules
+* Calendars
+* Address book
+
+#### And bonus points for
+* Tasks
+* Notes
+* File storage
+* Collaboration suite (document / spreadsheet editing)
+
+There are no referral links below, I've purchased these services with my own money and have received no donations or promotional material. So with that out of the way, let's dive in.
+
+## <a href="https://www.fastmail.com" target="_blank">FastMail</a>
+
+        <p>$3—9 per month, depending on plan. Annual payment discount offered.<br /><a class="btn-text" href="https://www.fastmail.com/pricing/" target="_blank">Pricing details</a></p>
+
+A solid product with advanced features for domain mail available (own domain, catch all and alias support). This means I can setup all of my domain email to be managed via FastMail-I currently use three different domain names-all of which point their DNS mail records to FastMails servers. When an email comes in for rj@email-xyz.com (or for anyone @email-xyz.com thanks to the catch all rules), it will be routed to a folder I have specified within FastMails settings for review later.
+
+Catch all is effectively if an email is sent to any address @email-xyz.com (for example) it will show up in my inbox. Great for monitoring what's coming in.
+
+        <a href="https://www.fastmail.com/help/receive/aliases.html" target="_blank">Aliases</a> are additional email addresses you can create that will also deliver to your inbox. It's a great way to setup multiple accounts to help sort your email. For example you might have one for support@email-xyz.com and another for news@email-xyz.com - these are all delivered to your inbox which you can then move to specific folders or to a distribution list, which is a group of contacts that is forwarded the email.
+
+As you can see just from those three features, FastMail is incredibly useful and powerful for a freelancer. All of this and more is manageable via their web interface. Speaking of which, the FastMail web interface is a little dated, though completely functional and gets the job done.
+
+Other note worthy features: Calendars (shared and private), contacts, notes, files (FTP, WebDAV), app specific passwords, 2 factor authentication, spam filtering, no ads and great support.
+
+## <a href="https://www.mailbox.org" target="_blank">Mailbox</a>
+
+€1—9 per month, depending on plan.<br /><a class="btn-text" href="https://mailbox.org/en/private-customers#price-plans" target="_blank">Pricing details</a>
+
+Another solid product with domain support, aliases, calendars, contacts, plus PGP encryption, depending on what package you select. The software used by Mailbox is the <a href="https://www.open-xchange.com" target="_blank">OX App Suite</a>, which I find has a fantastic interface that is highly useable and functional. It also offers document, spreadsheet and presentation functionality, bonus points!
+
+I would have happily ranked Mailbox at the top of my list, but the support was terrible to non-existent. There is a ticket from me in their system which has had no official reply. However it is filled with various other users complaining about the same problem-the lack of effective spam filtering.
+
+        <figure class="-mx-4 lg:-mx-8 bg-gray-100"><Cloudinary width="880" height="372" resize="fill" alt="OX Mail Suite interface" src="journal/ox-interface" errorImage="images/NotFound.svg" /><figcaption class="bg-yellow-50 text-xs">The OX App interface</figcaption></figure>
+
+Luckily it looks like OX is starting to offer their own hosted solution. Currently it's in closed beta, but I've signed up to the service to evaluate it further. There are some important things missing-like domain support-but overall I really like what I'm seeing and where the OX team is taking the product. I feel this OX service is the one to watch for 2018!
+
+## <a href="https://kolabnow.com" target="_blank">Kolab Now</a>
+
+CHF 5—9.90 per month, depending on plan.<br /><a class="btn-text" href="https://kolabnow.com/" target="_blank">Pricing details</a>
+
+The product I really want to love but just can't.
+
+It's a solid product that is offering everything I'm looking for, albeit a little pricer than the competition. What really burnt me though was not the company but more the software used, <a href="https://roundcube.net" target="_blank">Roundcube</a>. I'm a little more than pissed with Roundcube after their ill-fated Indiegogo campaign I backed, have a read of the <a href="https://www.indiegogo.com/projects/roundcube-next--2#/comments" target="_blank">other backers comments</a>, it looks like I'm not the only one.
+
+However if you're looking for a solution hosted in Switzerland, that runs on green energy and open source software, but don't harbour any ill feelings toward Roundcube, then give Kolab Now a spin.
+
+## <a href="https://soverin.net" target="_blank">Soverin</a>
+
+€3.25 per month.<br /><a class="btn-text" href="https://soverin.net" target="_blank">Pricing details</a>
+
+A relative new comer to the scene, Soverin showed some promise but ultimately failed to deliver.
+
+The email side is handled by Roundcube and while it's completely functional, I have a bit of a beef with Roundcube-have a read about it under the Kolab Now section if you're curious.
+
+However the calendar function did not work for me-as in it failed to load. The mail filtering functionality is very rudimentary and support-while responsive-was a little clueless. It honestly felt like an over designed under engineered product. Something a couple of guys cobbled together using various open source projects.
+
+I sincerely hope things have changed since I last used the platform. But the competition is stiff and they'll really need to stabilise and expand their platform in order to compete.
+
+### Other services worthy of mention
+
+#### <a href="https://posteo.de/en" target="_blank">Posteo</a>
+* Email, calendar, address book
+* Privacy conscious
+* Green energy
+* Great price
+* Roundcube
+* However no custom domain support, only as an alias
+
+#### <a href="https://protonmail.com" target="_blank">Proton mail</a>
+* Email and contacts, no calendar (currently on roadmap)
+* Secure mailbox
+* Privacy conscious
+* Custom domains
+* Open source
+* Variable pricing depending on what you need
+
+Ultimately it's up to you to decide which platform best suits your needs. I certainly hope the insights above can help you along that journey.

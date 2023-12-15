@@ -4,20 +4,20 @@ import Entries from "@/components/entries/Entries.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("posts");
-  const uniqueTags = [
-    ...new Set(allPosts.map((post) => post.data.tags).flat()),
-  ];
+	const allPosts = await getCollection("posts");
+	const uniqueTags = [
+		...new Set(allPosts.map((post) => post.data.tags).flat()),
+	];
 
-  return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) =>
-      post.data.tags.includes(tag)
-    );
-    return {
-      params: { tag },
-      props: { posts: filteredPosts },
-    };
-  });
+	return uniqueTags.map((tag) => {
+		const filteredPosts = allPosts.filter((post) =>
+			post.data.tags.includes(tag)
+		);
+		return {
+			params: { tag },
+			props: { posts: filteredPosts },
+		};
+	});
 }
 
 const { tag } = Astro.params;
@@ -25,26 +25,27 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
-  <section>
-    <div class="px-8 md:px-12 pt-12 lg:pt-48 2xl:max-w-7xl mx-auto">
-      <h1 class="text-gray-900 text-4xl lg:text-6xl font-display max-w-6xl">
-        <span class="block">blog posts tagged with {tag}</span>
-      </h1>
-      <ul class="grid grid-cols-1 divide-y divide-gray-100">
-        {
-          posts.map((post) => (
-            <Entries
-              url={"/journal/" + post.slug}
-              title={post.data.title}
-              description={post.data.description}
-              alt={post.data.title}
-              pubDate={post.data.pubDate}
-              author={post.data.author}
-              image={post.data.image.url}
-            />
-          ))
-        }
-      </ul>
-    </div>
-  </section>
+<main>
+	<section class="max-w-7xl mx-auto mb-8 lg:mb-16 px-4 lg:px-8">
+	  <header class="mb-8">
+		  <h1 class="mb-6 max-w-headline">Entries tagged: <span class="text-yellow-600">{tag}</span></h1>
+	  </header>
+		<ul class="grid grid-cols-1">
+			{
+				posts.map((post) => (
+					<Entries
+						url={"/journal/" + post.slug}
+						title={post.data.title}
+						description={post.data.description}
+						tags={post.data.tags}
+						alt={post.data.title}
+						pubDate={post.data.pubDate}
+						author={post.data.author}
+						image={post.data.image.url}
+					/>
+      			))
+			}
+      	</ul>
+	</section>
+</main>
 </BaseLayout>

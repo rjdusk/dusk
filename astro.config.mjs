@@ -13,7 +13,7 @@ export default defineConfig({
   markdown: {
     drafts: true,
     shikiConfig: {
-      theme: "css-variables"
+      theme: 'monokai',
     }
   },
   shikiConfig: {
@@ -21,8 +21,16 @@ export default defineConfig({
     skipInline: false,
     drafts: true
   },
-  site: 'https://lexingtonthemes.com',
-  integrations: [tailwind(), sitemap(), mdx()],
+  site: 'https://www.madebydusk.com',
+  integrations: [
+    tailwind({
+      // Example: Disable injecting a basic `base.css` import on every page.
+      // Useful if you need to define and/or import your own custom `base.css`.
+      applyBaseStyles: false,
+    }),
+    sitemap(),
+    mdx()
+  ],
   vite: {
     css: {
       postcss: {

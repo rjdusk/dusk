@@ -1,0 +1,40 @@
+---
+pubDate: 2017-12-04
+author: Rhys Jones
+title: GeoTarget redirects with WP Engine
+description: Redirect visitors to your site based on their country to a specific page, with the WP Engine GeoTarget WordPress plugin.
+
+image:
+  url: "./cover--geoip.png"
+  alt: "GeoIP targeting users via their IP address"
+
+tags: ["wordpress", "web-development"]
+---
+Where I work we host all of our websites with WP Engine. They offer compelling hosting plans that do a lot of things right and at a good price. One of the main reasons I wanted to host our websites with them was because they manage the hosting. As in I don't need to update Wordpress when there is a new release, WP Engine does. On top of that they offer finely tuned servers, CDN's, staging sites, SSL certificates through Let's Encrypt and great support. This takes a huge amount of weight off my shoulders, as the lone creative managing all of our organisations websites. Also peace of mind for the business units within the organisation. Should anything go wrong-like me getting hit by a bus-then they still have the support channel through with WP Engine.
+
+One of our business units had a requirement to redirect all visitors from the United States to a specific page on their website. Here the visitor would be presented with some information about the current state of the product in the US and a form to register their interest. This was due to the product being under FDA review and what claims were allowed to be made within the US.
+
+To handle this I implemented <a href="https://wordpress.org/plugins/wpengine-geoip/" target="_blank">WP Engines GeoTarget plugin</a> (note: this will only work on the Business or higher plan) along with the below PHP function.
+
+```php
+/** USA GEOIP REDIRECT but allow bots **/
+function country_geo_redirect() {
+  $country = getenv('HTTP_GEOIP_COUNTRY_CODE');
+  $agent = $_SERVER['HTTP_USER_AGENT'];
+  $host = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+  if ( $host == 'domain.com/us/' || $host == 'domain.com/feed/' || isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/bot|crawl|slurp|spider/i', $_SERVER['HTTP_USER_AGENT']) || $country != "US" ) {
+    return;
+  }
+  wp_redirect('https://domain.com/us/', 301);
+  exit;
+}
+add_action('init', 'country_geo_redirect');
+```
+
+What the above function above does, is checks if the visitor has requested certain pages which we don't want to restrict access to-in this case, our US landing page and the RSS feed. Next we check if they are from outside the US. Finally we check if they are a search bot-because we still want Google and the like to access our site so they can index it. If any of those conditions return true then the visitor is allowed to access the requested page.
+
+However if those conditions are not met, then the visitor is redirected to the US landing page. This is initialised as soon as possible from within Wordpress so the visitor doesn't need to download additional resources.
+
+Result achieved. We are now redirecting US based visitors to a "register your interest" page during the time the product is under going FDA review, while still allowing Google and other search bots to index our site.
+
+Some side notes-The main reason for going with WP Engines GEOIP plugin over other Wordpress GEOIP plugins, is that other plugins would cause a redirect loop. I suspect the redirect loops occurred because of WP Engines caching technology. Also initially I had blocked US visitors from viewing the RSS feed. However this broke functionality within MailChimp-who's servers are based in the US-which would scrape our RSS feed for new blog posts and send out a monthly news digest.

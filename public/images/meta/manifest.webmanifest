@@ -1,0 +1,24 @@
+{
+  "name": "Dusk | The creative output of Rhys Jones",
+  "short_name": "Dusk",
+  "description": "The creative output of Rhys Jones",
+  "icons": [
+    {
+      "src": "/assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "theme_color": "#f8cd89",
+  "background_color": "#f8cd89",
+  "display": "minimal-ui",
+  "scope": "/"
+}

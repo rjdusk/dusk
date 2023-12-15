@@ -3,11 +3,38 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Hero from "@/components/landing/Hero.astro";
 import WorkPreview from "@/components/work/WorkPreview.astro";
 import Credits from "@/components/landing/Credits.astro";
+import { AstroSeo } from "@astrolib/seo";
 ---
+<AstroSeo
+  title="Photographer, Graphic Designer & Web Developer, New Zealand | Dusk"
+  description="The creative output of Rhys Jones. A photographer, graphic designer and front-end developer based in New Zealand."
+  canonical="https://www.madebydusk.com"
+  openGraph={{
+    url: "https://www.madebydusk.com",
+    title: "Photographer, Graphic Designer & Web Developer, New Zealand | Dusk",
+    description: "The creative output of Rhys Jones. A photographer, graphic designer and front-end developer based in New Zealand.",
+    images: [
+      {
+        url: "/images/meta/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Social open graph",
+        type: "image/jpeg",
+      },
+      {
+        url: "/images/meta/twitter.jpg",
+        width: 1024,
+        height: 512,
+        alt: "Twitter open graph",
+        type: "image/jpeg",
+      },
+      { url: "/images/meta/og.jpg" },
+      { url: "/images/meta/twitter.jpg" },
+    ],
+    site_name: "Dusk",
+  }}
+/>
 
-<!---
-Use AstroSeo in all the pages you want different Seo than the index page
--->
 <BaseLayout>
   <Hero />
   <WorkPreview />

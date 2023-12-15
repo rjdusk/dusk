@@ -1,17 +1,49 @@
 ---
-import { getCollection } from 'astro:content';
-import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+import { getCollection } from "astro:content";
+import { AstroSeo } from "@astrolib/seo";
+import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('posts');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  const blogEntries = await getCollection("posts");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
+
+<AstroSeo
+  title={entry.data.title + " | Dusk"}
+  description={entry.data.description}
+  canonical={"https://www.madebydusk.com/journal/" + entry.slug}
+  openGraph={{
+    url: "https://www.madebydusk.com/journal/" + entry.slug,
+    title: entry.data.title,
+    description: entry.data.description,
+    images: [
+      {
+        url: "https://www.madebydusk.com/images/meta/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Social open graph",
+        type: "image/jpeg",
+      },
+      {
+        url: "https://www.madebydusk.com/images/meta/twitter.jpg",
+        width: 1024,
+        height: 512,
+        alt: "Twitter open graph",
+        type: "image/jpeg",
+      },
+      { url: "https://www.madebydusk.com/images/meta/og.jpg" },
+      { url: "https://www.madebydusk.com/images/meta/twitter.jpg" },
+    ],
+    site_name: "Dusk",
+  }}
+/>
 <MarkdownPostLayout frontmatter={entry.data}>
   <Content />
 </MarkdownPostLayout>

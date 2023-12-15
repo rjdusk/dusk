@@ -9,8 +9,8 @@ const postsCollection = defineCollection({
 
       image: z.object({
         url: image().refine((img) => img.width >= 1080, {
-          message: "Cover image must be at least 1080 pixels wide!",
-        }),
+            message: "Cover image must be at least 1080 pixels wide!",
+          }),
         alt: z.string()
       }),
 
