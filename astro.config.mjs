@@ -36,7 +36,7 @@ export default defineConfig({
   }), sitemap(), mdx(), alpinejs(), playformInline(), playformCompress({
     CSS: true,
     HTML: true,
-    Image: false,
+    Image: true,
     JavaScript: true,
     SVG: false
   })],

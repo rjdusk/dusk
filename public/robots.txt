@@ -74,4 +74,4 @@ Disallow: /
 User-agent: *
 Disallow: 
 
-Sitemap: https://www.madebydusk.com/sitemap.xml
+Sitemap: https://www.madebydusk.com/sitemap-index.xml
