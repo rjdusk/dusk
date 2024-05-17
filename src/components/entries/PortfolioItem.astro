@@ -1,0 +1,66 @@
+---
+import { Picture } from "astro:assets";
+
+const { title, url, description, tags, image, alt, linktext, position } =
+    Astro.props;
+
+//   Alternating layout classes depeneding on the items position in the map index
+const layoutclass =
+    "relative flex flex-col-reverse lg:flex-row mb-8 sm:mb-16 lg:mb-32 " +
+    (position % 2 === 0
+        ? "justify-around lg:justify-end items-end lg:items-center"
+        : "justify-around lg:justify-start items-start lg:items-center");
+const layoutposition =
+    "md:absolute md:z-10 w-full md:w-8/12 lg:w-6/12 py-4 sm:p-8 lg:p-16 bg-yellow-50/90 backdrop-blur-md flex flex-col gap-4 " +
+    (position % 2 === 0 ? "left-0" : "right-0");
+
+// This is to set the title to H3 on homepage and
+// H2 everywhere else for SEO purposes
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+const postTitle =
+    currentPath === ""
+        ? `<h3 class="text-inherit mb-0 text-3xl">${title}</h3>`
+        : `<h2 class="text-inherit mb-0">${title}</h2>`;
+---
+
+<article class={layoutclass}>
+    <div class={layoutposition}>
+        <a
+            href={url}
+            class="flex flex-none w-full items-center justify-between gap-8 group">
+            <Fragment set:html={postTitle} />
+            <svg
+                class="h-[2em] w-[2em] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 duration-200 ease-out text-inherit fill-current leading-none"
+                viewBox="0 0 48 48">
+                <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="37" y1="14" x2="47" y2="24"></line>
+                    <line x1="47" y1="24" x2="37" y2="34"></line>
+                    <line x1="47" y1="24" x2="1.5" y2="24"></line>
+                </g>
+            </svg>
+        </a>
+        <p
+            class="uppercase tracking-wide font-extralight text-gray-500 leading-normal text-xs">
+            {tags}
+        </p>
+        <p>{description}</p>
+        <p><a href={url} class="btn-text">{linktext}</a></p>
+    </div>
+    <div class="w-full md:w-8/12 aspect-w-16 aspect-h-9">
+        <Picture
+            src={image}
+            alt={alt}
+            formats={["avif", "webp"]}
+            quality={80}
+            width={960}
+            height={720}
+            widths={[245, 490, 980, 1280]}
+            class="w-full h-full object-cover bg-gray-100"
+        />
+    </div>
+</article>

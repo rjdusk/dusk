@@ -2,15 +2,15 @@
 pubDate: 2017-05-05
 author: Rhys Jones
 title: The traveling circus
-description: Some days it feels like I'm a part of a travelling circus, bouncing from one place to another, juggling various roles and responsibilities. I've been on the road for just over 13 years now. 
+description: Some days it feels like I'm a part of a travelling circus, bouncing from one place to another, juggling various roles and responsibilities.
 
 image:
-  url: "./cover--traveling-circus.png"
+  url: "../../images/journal/cover--traveling-circus.png"
   alt: "travel"
 
 tags: ["life"]
 ---
-import { Cloudinary } from 'astro-cloudinary-image';
+import MDXimage from '@/components/mdx/image.astro';
 
 Some days it feels like I'm a part of a travelling circus, bouncing from one place to another, juggling various roles and responsibilities. I've been on the road for just over 13 years now. I'm not some digital nomad or wandering free spirit or life hacking digital disruptor. I'm a husband and a father who happens to have a skill set that is universally applicable.
 
@@ -32,7 +32,10 @@ Now with an expanded skill set, I felt more confident with moving on and shiftin
 
 With everything I know now, I should have immersed myself within the surrounding environment, taken a job locally and thrown myself into the deep-end. I did pick up some new skills during my four years there, I made some great friends and travelled to some amazing places. There are pro's and con's to everything, but in this case my career development suffered due to my aversion to taking risks. Lesson learned.
 
-        <div class="-mx-4 lg:-mx-8 bg-gray-100"><Cloudinary width="880" height="495" resize="fill" alt="Woman in the snow, Umeå, Sweden" src="journal/woman-snow-sweden" errorImage="images/NotFound.svg" /></div>
+<figure class="-mx-4 lg:-mx-8 bg-gray-100">
+    <MDXimage alt="Woman in the snow, Umeå, Sweden" imagePath="/src/images/journal/woman-snow-sweden.jpg" width={880} height={481} widths={[320, 640, 960]} />
+    <figcaption class="bg-yellow-50 text-xs">Woman in the snow, Umeå, Sweden</figcaption>
+</figure>
 
 ## But ofttimes better than master of one.
 

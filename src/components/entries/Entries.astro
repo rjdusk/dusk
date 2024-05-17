@@ -3,49 +3,49 @@ const { title, url, description, tags, pubDate } = Astro.props;
 ---
 
 <li class="mt-16 md:mt-24">
-  <article
-    class="flex flex-col md:flex-row items-baseline flex-wrap gap-4 md:gap-8">
-    <a
-      href={url}
-      class="flex flex-none w-full items-center justify-between gap-8 group">
-      <h2 class="text-inherit mb-0">{title}</h2>
-      <svg
-        class="h-[2em] w-[2em] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 duration-200 ease-out text-inherit fill-current leading-none"
-        viewBox="0 0 48 48">
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round">
-          <line x1="37" y1="14" x2="47" y2="24"></line>
-          <line x1="47" y1="24" x2="37" y2="34"></line>
-          <line x1="47" y1="24" x2="1.5" y2="24"></line>
-        </g>
-      </svg>
-    </a>
-    <div
-      class="flex-initial w-full md:w-4/12 tracking-wider font-extralight text-gray-500">
-      <time
-        datetime={`${pubDate.toISOString()}`}
-        class="block pt-0 mb-2 text-xs uppercase leading-normal">
-        {
-          `${pubDate.toLocaleDateString("en-gb", {
-            year: "numeric",
-            month: "long",
-            day: "2-digit",
-          })}`
-        }
-      </time>
-      <ul class="flex gap-2">
-        {
-          tags.map((tag) => (
-            <li class="text-xs tracking-wide leading-normal text-xs">
-              <a href={`/journal/tags/${tag}`}>#{tag}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-    <p class="flex-1 w-full md:w-8/12">{description}</p>
-  </article>
+    <article
+        class="flex flex-col md:flex-row items-baseline flex-wrap gap-4 md:gap-8">
+        <a
+            href={url}
+            class="flex flex-none w-full items-center justify-between gap-8 group">
+            <h2 class="text-inherit mb-0">{title}</h2>
+            <svg
+                class="h-[2em] w-[2em] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 duration-200 ease-out text-inherit fill-current leading-none"
+                viewBox="0 0 48 48">
+                <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="37" y1="14" x2="47" y2="24"></line>
+                    <line x1="47" y1="24" x2="37" y2="34"></line>
+                    <line x1="47" y1="24" x2="1.5" y2="24"></line>
+                </g>
+            </svg>
+        </a>
+        <div
+            class="flex-initial w-full md:w-4/12 text-xs tracking-wide leading-normal font-extralight text-gray-500">
+            <time
+                datetime={`${pubDate.toISOString()}`}
+                class="block pt-0 mb-2 uppercase">
+                {
+                    `${pubDate.toLocaleDateString("en-nz", {
+                        year: "numeric",
+                        month: "long",
+                        day: "2-digit",
+                    })}`
+                }
+            </time>
+            <ul class="flex gap-2">
+                {
+                    tags.map((tag) => (
+                        <li>
+                            <a href={`/journal/tags/${tag}/`}>#{tag}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+        <p class="flex-1 w-full md:w-8/12">{description}</p>
+    </article>
 </li>

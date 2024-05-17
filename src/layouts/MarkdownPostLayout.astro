@@ -1,65 +1,56 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import { Cloudinary } from "astro-cloudinary-image";
-const { frontmatter } = Astro.props;
+import { Picture } from "astro:assets";
+const { frontmatter, title, description, ogimage } = Astro.props;
 ---
 
-<BaseLayout>
-    <main>
-        <article class="max-w-7xl mx-auto mb-8 lg:mb-16 px-4 lg:px-8">
-            <header class="mb-8">
-                <h1 class="mb-6 max-w-headline">{frontmatter.title}</h1>
-                <figure
-                    class="mb-8 -mx-4 lg:-mx-8 aspect-w-16 aspect-h-9 img-fill"
-                >
-                    <Cloudinary
-                        width="1920"
-                        height="1080"
-                        resize="fill"
-                        alt={frontmatter.image.alt}
-                        src={frontmatter.image.url}
-                        errorImage="/images/NotFound.svg"
-                    />
-                </figure>
-            </header>
-            <div class="flex flex-col md:flex-row gap-8">
-                <aside
-                    class="w-full md:w-3/12 flex flex-row md:flex-col gap-4 justify-between items-end md:items-start md:justify-start text-xs font-extralight"
-                >
-                    <p
-                        class="uppercase text-gray-500 tracking-wider leading-normal"
-                    >
-                        Published
-                        <time
-                            datetime={`${frontmatter.pubDate.toISOString()}`}
-                            class="block"
-                        >
-                            {
-                                `${frontmatter.pubDate.toLocaleDateString(
-                                    "en-gb",
-                                    {
-                                        year: "numeric",
-                                        month: "long",
-                                        day: "2-digit",
-                                    },
-                                )}`
-                            }
-                        </time>
-                    </p>
-                    <p class="flex items-baseline gap-2">
+<BaseLayout title={title} description={description} image={ogimage}>
+    <article class="max-w-7xl mx-auto mb-8 lg:mb-16 px-4 lg:px-8">
+        <header class="mb-8">
+            <h1 class="mb-6 max-w-headline">{frontmatter.title}</h1>
+            <figure
+                class="mb-8 -mx-4 lg:-mx-8 bg-gray-100 aspect-w-16 aspect-h-9">
+                <Picture
+                    src={frontmatter.image.url}
+                    formats={["avif", "webp"]}
+                    alt={frontmatter.image.alt}
+                    width="1280"
+                    height="960"
+                    class:list={["w-full h-full object-cover"]}
+                />
+            </figure>
+        </header>
+        <div class="flex flex-col md:flex-row gap-8">
+            <aside
+                class="w-full md:w-3/12 flex flex-row md:flex-col gap-2 justify-between items-end md:items-start md:justify-start text-xs font-extralight"
+                aria-label="Metadata">
+                <p class="uppercase text-gray-500 tracking-wide leading-normal">
+                    Published
+                    <time
+                        datetime={`${frontmatter.pubDate.toISOString()}`}
+                        class="block">
                         {
-                            frontmatter.tags.map((tag) => (
-                                <span>
-                                    <a href={`/tags/${tag}`}>#{tag}</a>
-                                </span>
-                            ))
+                            `${frontmatter.pubDate.toLocaleDateString("en-nz", {
+                                year: "numeric",
+                                month: "long",
+                                day: "2-digit",
+                            })}`
                         }
-                    </p>
-                </aside>
-                <section class="w-full md:w-9/12 prose flow">
-                    <slot />
-                </section>
-            </div>
-        </article>
-    </main>
+                    </time>
+                </p>
+                <p class="flex items-baseline gap-2">
+                    {
+                        frontmatter.tags.map((tag) => (
+                            <span>
+                                <a href={`/journal/tags/${tag}/`}>#{tag}</a>
+                            </span>
+                        ))
+                    }
+                </p>
+            </aside>
+            <section class="w-full md:w-9/12 prose flow">
+                <slot />
+            </section>
+        </div>
+    </article>
 </BaseLayout>

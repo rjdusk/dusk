@@ -5,7 +5,7 @@ title: It's sausages all the way down
 description: Prevent hotlinking of your images and replace the image with some yummy sausages, using the magic of .htaccess and Apache, lovely!
 
 image:
-  url: "./cover--sausage.png"
+  url: "../../images/journal/cover--sausage.png"
   alt: "Mmmmmm sausages..."
 
 tags: ["web-development"]
@@ -16,9 +16,9 @@ One of my techniques is to produce simple workflows of rather complex and confus
 
 Initially I was pissed off. There is a lot of hours put into these rather simple looking workflows. Lots of consulting with the scientists to make sure I understood their protocol correctly, that everything makes sense and there are no conflicting messages present through out the workflow. I went for a walk to cool off and it dawned on me… these bastards are hot-linking to our images, I can have some fun and mess with them!
 
-        <a href="https://simple.wikipedia.org/wiki/.htaccess" target="_blank">.htaccess to the rescue</a>
+<a href="https://simple.wikipedia.org/wiki/.htaccess" target="_blank">.htaccess to the rescue</a>
 
-``` apacheconf
+``` apache
 # Prevent image hot-linking #
 RewriteEngine on
 RewriteCond %{HTTP_REFERER} !^$

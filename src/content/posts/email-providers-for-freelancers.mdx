@@ -2,15 +2,15 @@
 pubDate: 2018-01-26
 author: Rhys Jones
 title: Email providers for freelancers
-description: I've used various platforms over the years for email and calenders, ever since breaking up with Gmail and Google. This is a comparison of several email providers that are not in the Google ecosystem.
+description: I've used various platforms over the years for email and calenders, ever since breaking up with Google. This is a comparison of several providers.
 
 image:
-  url: "./cover--email-providers.png"
+  url: "../../images/journal/cover--email-providers.png"
   alt: "Email tools can be like a black box"
 
 tags: ["email", "tools"]
 ---
-import { Cloudinary } from 'astro-cloudinary-image';
+import MDXimage from '@/components/mdx/image.astro';
 
 I've used various platforms over the past 4 years for email, ever since breaking up with Gmail and Google. Becoming more serious about how I communicate with clients, presenting a professional image and not having my data mined for various purposes, I decided it was high time to do some serious research into finding a suitable replacement.
 
@@ -30,13 +30,13 @@ There are no referral links below, I've purchased these services with my own mon
 
 ## <a href="https://www.fastmail.com" target="_blank">FastMail</a>
 
-        <p>$3—9 per month, depending on plan. Annual payment discount offered.<br /><a class="btn-text" href="https://www.fastmail.com/pricing/" target="_blank">Pricing details</a></p>
+<p>$3—9 per month, depending on plan. Annual payment discount offered.<br /><a class="btn-text" href="https://www.fastmail.com/pricing/" target="_blank">Pricing details</a></p>
 
 A solid product with advanced features for domain mail available (own domain, catch all and alias support). This means I can setup all of my domain email to be managed via FastMail-I currently use three different domain names-all of which point their DNS mail records to FastMails servers. When an email comes in for rj@email-xyz.com (or for anyone @email-xyz.com thanks to the catch all rules), it will be routed to a folder I have specified within FastMails settings for review later.
 
 Catch all is effectively if an email is sent to any address @email-xyz.com (for example) it will show up in my inbox. Great for monitoring what's coming in.
 
-        <a href="https://www.fastmail.com/help/receive/aliases.html" target="_blank">Aliases</a> are additional email addresses you can create that will also deliver to your inbox. It's a great way to setup multiple accounts to help sort your email. For example you might have one for support@email-xyz.com and another for news@email-xyz.com - these are all delivered to your inbox which you can then move to specific folders or to a distribution list, which is a group of contacts that is forwarded the email.
+<a href="https://www.fastmail.com/help/receive/aliases.html" target="_blank">Aliases</a> are additional email addresses you can create that will also deliver to your inbox. It's a great way to setup multiple accounts to help sort your email. For example you might have one for support@email-xyz.com and another for news@email-xyz.com - these are all delivered to your inbox which you can then move to specific folders or to a distribution list, which is a group of contacts that is forwarded the email.
 
 As you can see just from those three features, FastMail is incredibly useful and powerful for a freelancer. All of this and more is manageable via their web interface. Speaking of which, the FastMail web interface is a little dated, though completely functional and gets the job done.
 
@@ -50,7 +50,10 @@ Another solid product with domain support, aliases, calendars, contacts, plus PG
 
 I would have happily ranked Mailbox at the top of my list, but the support was terrible to non-existent. There is a ticket from me in their system which has had no official reply. However it is filled with various other users complaining about the same problem-the lack of effective spam filtering.
 
-        <figure class="-mx-4 lg:-mx-8 bg-gray-100"><Cloudinary width="880" height="372" resize="fill" alt="OX Mail Suite interface" src="journal/ox-interface" errorImage="images/NotFound.svg" /><figcaption class="bg-yellow-50 text-xs">The OX App interface</figcaption></figure>
+<figure class="-mx-4 lg:-mx-8 bg-gray-100">
+    <MDXimage alt="The OX App interface" imagePath="/src/images/journal/ox-interface.jpg" width={880} height={408} widths={[320, 640, 960]} />
+    <figcaption class="bg-yellow-50 text-xs">The OX App interface</figcaption>
+</figure>
 
 Luckily it looks like OX is starting to offer their own hosted solution. Currently it's in closed beta, but I've signed up to the service to evaluate it further. There are some important things missing-like domain support-but overall I really like what I'm seeing and where the OX team is taking the product. I feel this OX service is the one to watch for 2018!
 

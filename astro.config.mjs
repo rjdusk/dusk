@@ -1,19 +1,20 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
-import mdx from "@astrojs/mdx"; // VS Code Theme is: Sequoiatheme.com
-
+import mdx from "@astrojs/mdx";
 import postcssImport from "postcss-import";
 import postcssNesting from "tailwindcss/nesting";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
+import alpinejs from "@astrojs/alpinejs";
+import playformCompress from "@playform/compress";
 
+// https://astro.build/config
 export default defineConfig({
-
   markdown: {
     drafts: true,
     shikiConfig: {
-      theme: 'monokai',
+      theme: 'ayu-dark'
     }
   },
   shikiConfig: {
@@ -22,20 +23,34 @@ export default defineConfig({
     drafts: true
   },
   site: 'https://www.madebydusk.com',
-  integrations: [
-    tailwind({
-      // Example: Disable injecting a basic `base.css` import on every page.
-      // Useful if you need to define and/or import your own custom `base.css`.
-      applyBaseStyles: false,
-    }),
-    sitemap(),
-    mdx()
-  ],
+  trailingSlash: 'always',
+  prefetch: {
+    prefetchAll: true
+  },
+  integrations: [tailwind({
+    // Example: Disable injecting a basic `base.css` import on every page.
+    // Useful if you need to define and/or import your own custom `base.css`.
+    applyBaseStyles: false
+  }), sitemap(), mdx(), alpinejs(), playformCompress({
+    CSS: true,
+    HTML: true,
+    Image: false,
+    JavaScript: true,
+    SVG: false,
+  })],
   vite: {
+    server: {
+      watch: {
+        ignored: ["**/_scraps/**"]
+      }
+    },
     css: {
       postcss: {
-        plugins: [postcssImport, postcssNesting, tailwindcss, autoprefixer],
-      },
-    },
+        plugins: [postcssImport, postcssNesting, tailwindcss, autoprefixer]
+      }
+    }
   },
+  build: {
+    assets: 'assets'
+  }
 });

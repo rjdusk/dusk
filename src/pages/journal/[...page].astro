@@ -4,114 +4,88 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Latest from "@/components/entries/Latest.astro";
 import Entries from "@/components/entries/Entries.astro";
 import Pagination from "@/components/entries/Pagination.astro";
-import { AstroSeo } from "@astrolib/seo";
 
 const allPosts = await getCollection("posts");
 export async function getStaticPaths({ paginate }) {
-  const allPosts = (await getCollection("posts")).sort(
-    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
-  );
-  const formattedPosts = allPosts.reverse();
-  return paginate(formattedPosts, {
-    pageSize: 5,
-  });
+    const allPosts = (await getCollection("posts")).sort(
+        (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+    );
+    const formattedPosts = allPosts.reverse();
+    return paginate(formattedPosts, {
+        pageSize: 5,
+    });
 }
 const { page } = Astro.props;
 const posts = (await getCollection("posts")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
 );
 const pathname = new URL(Astro.request.url).pathname.split("/");
 const firstPath = pathname[1];
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 ---
 
-<AstroSeo
-  title="A Journal of Life, Photography, Design and Code | Dusk"
-  description="Follow along with these intersections of life, design, and code on my journal. Where art meets algorithm, and life meets design."
-  canonical="https://www.madebydusk.com/journal"
-  openGraph={{
-    url: "https://www.madebydusk.com/journal",
-    title: "A Journal of Life, Photography, Design and Code | Dusk",
-    description:
-      "Follow along with these intersections of life, design, and code on my journal. Where art meets algorithm, and life meets design.",
-    images: [
-      {
-        url: "https://www.madebydusk.com/journal/images/meta/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Social open graph",
-        type: "image/jpeg",
-      },
-      {
-        url: "https://www.madebydusk.com/journal/images/meta/twitter.jpg",
-        width: 1024,
-        height: 512,
-        alt: "Twitter open graph",
-        type: "image/jpeg",
-      },
-      { url: "https://www.madebydusk.com/journal/images/meta/og.jpg" },
-      { url: "https://www.madebydusk.com/journal/images/meta/twitter.jpg" },
-    ],
-    site_name: "Dusk",
-  }}
-/>
+<BaseLayout
+    title="A Journal of Life, Photography, Design and Code"
+    description="Follow along with these intersections of life, design, and code on my journal. Where art meets algorithm, and life meets design.">
+    <section>
+        <div class="max-w-7xl mx-auto mb-8 lg:mb-16 px-4 lg:px-8">
+            {
+                page.data
+                    .sort(
+                        (a, b) =>
+                            Date.parse(b.data.pubDate) -
+                            Date.parse(a.data.pubDate),
+                    )
+                    .slice(0, 1)
+                    .map((post) => (
+                        <Latest
+                            url={`/journal/${post.slug}/`}
+                            title={post.data.title}
+                            pubDate={post.data.pubDate}
+                            tags={post.data.tags}
+                            description={post.data.description}
+                            image={post.data.image.url}
+                            alt={post.data.image.alt}
+                            position={posts.indexOf(post)}
+                        />
+                    ))
+            }
 
-<BaseLayout>
-  <section>
-    <div class="max-w-7xl mx-auto mb-8 px-4 lg:px-8">
-      {
-        page.data
-          .sort(
-            (a, b) => Date.parse(b.data.pubDate) - Date.parse(a.data.pubDate),
-          )
-          .slice(0, 1)
-          .map((post) => (
-            <Latest
-              url={`/journal/${post.slug}/`}
-              title={post.data.title}
-              pubDate={post.data.pubDate}
-              tags={post.data.tags}
-              description={post.data.description}
-              image={post.data.image.url}
-              alt={post.data.title}
-              position={posts.indexOf(post)}
-            />
-          ))
-      }
+            <ul class="grid grid-cols-1">
+                {
+                    page.data
+                        .sort(
+                            (a, b) =>
+                                Date.parse(b.data.pubDate) -
+                                Date.parse(a.data.pubDate),
+                        )
+                        .slice(1)
+                        .map((post) => (
+                            <Entries
+                                url={`/journal/${post.slug}/`}
+                                title={post.data.title}
+                                pubDate={post.data.pubDate}
+                                tags={post.data.tags}
+                                description={post.data.description}
+                                image={post.data.image.url}
+                                alt={post.data.image.alt}
+                                position={posts.indexOf(post)}
+                            />
+                        ))
+                }
+            </ul>
 
-      <ul class="grid grid-cols-1">
-        {
-          page.data
-            .sort(
-              (a, b) => Date.parse(b.data.pubDate) - Date.parse(a.data.pubDate),
-            )
-            .slice(1)
-            .map((post) => (
-              <Entries
-                url={`/journal/${post.slug}/`}
-                title={post.data.title}
-                pubDate={post.data.pubDate}
-                tags={post.data.tags}
-                description={post.data.description}
-                image={post.data.image.url}
-                alt={post.data.title}
-                position={posts.indexOf(post)}
-              />
-            ))
-        }
-      </ul>
-
-      <div class="mt-16 md:mt-24 border-t border-gray-50 flex justify-center">
-        <Pagination
-          length={page.lastPage}
-          currentUrl={page.url.current}
-          currentPage={page.currentPage}
-          firstUrl={`/${firstPath}`}
-          prevUrl={page.url.prev}
-          nextUrl={page.url.next}
-          lastUrl={`/${firstPath}/${page.lastPage}`}
-        />
-      </div>
-    </div>
-  </section>
+            <div
+                class="mt-16 md:mt-24 border-t border-gray-50 flex justify-center">
+                <Pagination
+                    length={page.lastPage}
+                    currentUrl={page.url.current}
+                    currentPage={page.currentPage}
+                    firstUrl={`/${firstPath}/`}
+                    prevUrl={page.url.prev}
+                    nextUrl={page.url.next}
+                    lastUrl={`/${firstPath}/${page.lastPage}/`}
+                />
+            </div>
+        </div>
+    </section>
 </BaseLayout>

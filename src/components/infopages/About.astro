@@ -1,0 +1,328 @@
+---
+import { Picture } from "astro:assets";
+import rhysImage01 from "../../images/about/profile--rhys-large.jpg";
+import rhysImage02 from "../../images/about/profile--rhys-blurry.jpg";
+import rhysImage03 from "../../images/about/profile--rhys-nth-lights.jpg";
+---
+
+<section>
+    <div
+        class="max-w-7xl mx-auto mb-8 lg:mb-16 px-4 lg:px-8 grid grid-cols-4 gap-y-8 gap-x-12 md:gap-y-0 md:gap-x-4 md:grid-cols-12">
+        <div class="order-2 col-span-4 col-start-1 md:order-1 md:col-span-4">
+            <figure class="overflow-hidden bg-gray-300 text-center">
+                <Picture
+                    src={rhysImage01}
+                    alt="Rhys Jones profile image"
+                    formats={["avif", "webp"]}
+                    quality={80}
+                    width={386}
+                    height={515}
+                    widths={[320, 480, 640]}
+                    class="object-contain"
+                    loading="eager"
+                />
+            </figure>
+            <aside class="mt-8 flex flex-col" aria-label="Work history">
+                <ul role="list" class="list-reset space-y-0 text-gray-500">
+                    <li class="border-l border-yellow-400 pl-6 py-6">
+                        <p class="mb-0 uppercase leading-none text-xs">
+                            2018-current
+                        </p>
+                        <p class="mt-1 mb-0 text-sm">
+                            <span class="block text-gray-900">Web Manager</span
+                            >Scandit (CH)
+                        </p>
+                    </li>
+                    <li class="border-l border-gray-100 pl-6 py-6">
+                        <p class="mb-0 uppercase leading-none text-xs">
+                            2016-2018
+                        </p>
+                        <p class="mt-1 mb-0 text-sm">
+                            <span class="block text-gray-900"
+                                >Creative Lead</span
+                            >Biotec Pharmacon (NO)
+                        </p>
+                    </li>
+                    <li class="border-l border-gray-100 pl-6 py-6">
+                        <p class="mb-0 uppercase leading-none text-xs">
+                            2012-2016
+                        </p>
+                        <p class="mt-1 mb-0 text-sm">
+                            <span class="block text-gray-900"
+                                >Web Developer <span class="font-head"
+                                    >&amp;</span
+                                > Graphic Designer</span
+                            >ArcticZymes (NO)
+                        </p>
+                    </li>
+                    <li class="border-l border-gray-100 pl-6 py-6">
+                        <p class="mb-0 uppercase leading-none text-xs">
+                            2008-2012
+                        </p>
+                        <p class="mt-1 mb-0 text-sm">
+                            <span class="block text-gray-900"
+                                >Web Developer <span class="font-head"
+                                    >&amp;</span
+                                > Visual Communications</span
+                            >HP Software (US)
+                        </p>
+                    </li>
+                    <li class="border-l border-gray-100 pl-6 pt-6">
+                        <p class="mb-0 uppercase leading-none text-xs">
+                            2005-2008
+                        </p>
+                        <p class="mt-1 mb-0 text-sm">
+                            <span class="block text-gray-900"
+                                >Web Developer <span class="font-head"
+                                    >&amp;</span
+                                > Graphic Designer</span
+                            >Tower Software (AU)
+                        </p>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+        <div
+            class="order-1 col-span-4 col-start-1 md:order-2 md:col-span-7 md:col-start-6 flow prose">
+            <h1
+                class="text-gray-800 text-3xl leading-tight align-bottom md:mt-16 lg:mt-24 mb-0">
+                <svg
+                    aria-labelledby="title"
+                    viewBox="0 0 870 259"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    stroke-linejoin="round"
+                    stroke-miterlimit="1.414"
+                    id="logo"
+                    class="inline-block w-auto align-bottom h-16 md:-ml-8"
+                    ><path
+                        d="M4 180.2c0-30.9 18.2-55.7 45.4-65V40.6c0-25.5-5.6-27.2-32.2-28.9V3.5h104.1c76.2 0 124.7 38.1 124.7 116 0 80.6-57.4 138.3-143.5 138.3-64.6 0-98.5-39.2-98.5-77.6zm78.3-68.7c33.5 3.3 58.3 25.2 58.3 54.7 0 15.3-7.3 28.5-23.2 28.5-11 0-20.2-7.3-20.2-18.2 0-7.6 3.6-11.6 7-15.3 3-3.3 6-6.3 6-11.6 0-10.3-11.9-23.5-37.1-23.5-26.5 0-52 17.9-52 54 0 39.8 37.5 62.7 81.6 62.7 64.3 0 107.1-38.8 107.1-122.7 0-82.9-38.8-101.8-88.2-101.8H92.2c-6.3 0-10 3.6-10 10l.1 83.2zM298.8 162c0 25.7 18.5 36.7 42.4 36.7 23.3 0 40.6-12.5 40.6-37.9V78.3c0-15.2-3.6-16.7-20.9-17.9v-6.9h55.8v6.9c-17.3 1.2-21.2 2.7-21.2 17.9v82.4c0 29.9-20.6 50.2-59.7 50.2-41.2 0-65.7-17-65.7-50.2V78.3c0-15.2-3.9-16.7-21.2-17.9v-6.9h70.8v6.9c-17.3 1.2-20.9 2.7-20.9 17.9V162zm184.7-50.2c24.8 7.5 53.4 15.5 53.4 49.9 0 29.6-23 49.3-53.9 49.3-16.3 0-30.9-4.5-41.6-11.6l-3.3 8.4h-7l-11.8-48.4 5.5-1.8c12 26.6 33.1 42.1 57.1 42.1 18 0 32.6-11.6 32.6-28.4 0-20.6-20.8-26.3-42.1-32.9-22.8-7.2-46.4-15.8-46.4-45.7 0-25.7 21.3-42.4 47.3-42.4 17.3 0 29.6 4.8 37.6 10.5l2.8-7.2h6.8l11 43.6-5 1.8c-10.3-23.3-27.1-37.3-51.4-37.3-17 0-27.3 9.9-27.3 22.1.1 16.6 16.9 22.3 35.7 28zm61.3 95.9v-7.2c17.3-.9 20.9-2.1 20.9-17.6V78.3c0-15.2-3.6-16.7-20.9-17.9v-6.9h70.5v6.9c-17 1.2-20.9 2.7-20.9 17.9v50.5l59.4-51.1c6.6-6.3 10.2-15.8-12.5-17.3v-6.9h62.4v6.9c-12.5 1.2-17.3 4.2-29 14.3l-42.4 36.7c57 82.1 98 133.8 152.3 133.8 31.1 0 69.3-19.7 69.3-62.7 0-35.5-25.7-54.4-52.9-54.4-20.9 0-34.3 12.2-34.3 25.4 0 7.2 4.5 10.2 9 12.8 4.8 3.3 9.6 6.3 9.6 14.6 0 8.7-6.9 14.9-17 14.9-13.7 0-22.4-12.5-22.4-30.2 0-25.1 23-49.3 55.2-49.3 34.3 0 66 24.8 66 66 0 48.4-41.5 75.9-85.1 75.9-62.1 0-100.9-28.7-170.8-127.8l-16.7 14.3v37.9c0 15.5 3.9 16.7 20.9 17.6v7.2l-70.6.3z"
+                        fill="currentColor"
+                        fill-opacity="1"></path><title id="title">
+                        Dusk
+                    </title></svg
+                ><span
+                    class="block mt-1 ml-10 font-normal align-bottom sm:mt-0 sm:ml-0 sm:inline"
+                    >is Rhys Jones.</span
+                >
+            </h1>
+
+            <p class="!mt-6 text-lg leading-normal">
+                Working in both digital and print media, with a strong focus on
+                front-end development and graphic design. Other skills include
+                photography, illustration and post production.
+            </p>
+
+            <h2>The Backstory</h2>
+            <p>
+                Starting out in the late nineties with a youngsters curiosity
+                for the Internet and a copy of <a
+                    href="https://en.wikipedia.org/wiki/Netscape_Composer"
+                    target="_blank"
+                    rel="noopener">Netscape Composer</a
+                >, I whittled away my summer holidays studying the underlying
+                code of websites. How they interacted with CGI scripts, why
+                Internet Explorer did what it did and what sort of server stacks
+                they ran on.
+            </p><p>
+                During the following years I studied graphic design and
+                photography, while in my spare time I created websites for
+                various bands, small businesses and friends. The early 00's saw
+                me study Multimedia Design and Internet Technology at tertiary
+                level. I spent my days blurring the lines between 3D modelling
+                in Lightwave, interactive CD-ROM design in <a
+                    href="https://en.wikipedia.org/wiki/Adobe_Director"
+                    target="_blank"
+                    rel="noopener">Macromedia Director</a
+                > and post production fuckery in Adobe After Effects. My mind was
+                racing with new ideas about how I could bring this all together in
+                an online space.
+            </p>
+
+            <p>
+                Shortly after completing my studies I moved to Australia and
+                found employment at <a
+                    href="https://en.wikipedia.org/wiki/TOWER_Software"
+                    target="_blank"
+                    rel="noopener">Tower Software</a
+                > working as their in-house graphic designer and web master. My skill
+                set was soon tapped by their development team and I found myself
+                split between marketing and software development. It was a collaborative
+                3 year experience that was equal parts nerve-racking and enlightening.
+            </p>
+        </div>
+    </div>
+
+    <figure
+        class="mb-8 lg:mb-16 max-w-screen-2xl mx-auto w-full h-auto bg-gray-300 shadow-xl">
+        <Picture
+            src={rhysImage02}
+            alt="Rhys Jones blurry vision"
+            formats={["avif", "webp"]}
+            quality={80}
+            width={1536}
+            height={840}
+            widths={[384, 768, 1536]}
+            class="object-cover"
+        />
+    </figure>
+
+    <div
+        class="max-w-7xl mx-auto mb-8 lg:mb-16 px-4 lg:px-8 grid grid-cols-4 gap-y-8 gap-x-12 md:gap-y-0 md:gap-x-4 md:grid-cols-12">
+        <aside
+            class="order-2 col-span-4 col-start-1 md:order-1 flex flex-col"
+            aria-label="Brief overview information">
+            <ul role="list" class="list-reset space-y-12 text-gray-500">
+                <li>
+                    <p class="mb-0 uppercase leading-none text-xs">Location</p>
+                    <p class="mt-1 mb-0 text-sm text-gray-900">New Zealand</p>
+                </li>
+                <li>
+                    <p class="mb-0 uppercase leading-none text-xs">Skills</p>
+                    <p class="mt-1 mb-0 text-sm text-gray-900">
+                        Front-End Design &amp; Development, Photography, Graphic
+                        Design, Illustration
+                    </p>
+                </li>
+                <li>
+                    <p class="mb-0 uppercase leading-none text-xs">Email</p>
+                    <p class="mt-1 mb-0 text-sm">
+                        <a href="mailto:hello@madebydusk.com" rel="me"
+                            >hello@madebydusk.com</a
+                        >
+                    </p>
+                </li>
+                <li>
+                    <p class="mb-0 uppercase leading-none text-xs">Mastadon</p>
+                    <p class="mt-1 mb-0 text-sm">
+                        <a
+                            href="https://mastodon.nz/@dvsk"
+                            target="_blank"
+                            rel="me">@dvsk@mastodon.nz</a
+                        >
+                    </p>
+                </li>
+            </ul>
+        </aside>
+
+        <div
+            class="order-1 col-span-4 col-start-1 md:order-2 md:col-span-7 md:col-start-6 flow prose">
+            <h2>God tur!</h2>
+            <p>
+                Shifting hemispheres to <a
+                    href="https://en.wikipedia.org/wiki/Ume%C3%A5"
+                    target="_blank"
+                    rel="noopener">Umeå, Sweden</a
+                >, I gained employment with HP Software, remotely managing their
+                Information Management Digital Hub and surrounding community. My
+                limited training in film and post production proved useful
+                however, as I found myself traveling regularly to record
+                conferences, various user sessions and promo pieces across the
+                globe. Over the course of my 4 years at HP Software, I grew
+                immensely in both skills and maturity.
+            </p>
+
+            <p>
+                Moving closer to the north pole landed me in <a
+                    href="https://en.wikipedia.org/wiki/Troms%C3%B8"
+                    target="_blank"
+                    rel="noopener">Tromsø, Norway</a
+                >. I left my job at HP Software to join <a
+                    href="/portfolio/arcticzymes/">ArcticZymes</a
+                > as their in-house graphic designer and web developer. As time passed
+                my role within ArcticZymes expanded to incorporate photography, illustration,
+                campaign development, identity system development and much more.
+                Their parent company, <a href="/portfolio/biotec-pharmacon/"
+                    >Biotec Pharmacon</a
+                >, then employed me as their Creative Lead to manage all of
+                their subsidiaries print and digital projects. This was another
+                period of huge growth for me professionally and personally. The
+                things I learned, experienced and saw are priceless, not to
+                mention all the beautiful people I made friends with, who are
+                all very dear to me.
+            </p>
+        </div>
+    </div>
+
+    <figure
+        class="mb-8 lg:mb-16 max-w-screen-2xl mx-auto w-full h-auto bg-gray-300 shadow-xl">
+        <Picture
+            src={rhysImage03}
+            alt="Under the northern lights"
+            formats={["avif", "webp"]}
+            quality={80}
+            width={1536}
+            height={764}
+            widths={[384, 768, 1536]}
+            class="object-cover"
+        />
+    </figure>
+
+    <div
+        class="max-w-7xl mx-auto mb-8 lg:mb-16 px-4 lg:px-8 grid grid-cols-4 gap-y-8 gap-x-12 md:gap-y-0 md:gap-x-4 md:grid-cols-12">
+        <aside
+            class="order-2 col-span-4 col-start-1 pt-8 md:pt-20 md:order-1 flex flex-col"
+            aria-label="pointer graphic">
+            <svg
+                viewBox="0 0 1000 600"
+                fill="none"
+                class="relative w-full h-auto"
+                ><circle
+                    cx="346.847"
+                    cy="234.589"
+                    r="91.6366"
+                    transform="rotate(-27.1992 346.847 234.589)"
+                    fill="none"
+                    stroke="#414042"
+                    stroke-width="1"></circle><path
+                    d="M483.985 97.7405C405.917 34.3894 333.072 56.8907 296.247 76.2075C259.261 95.2883 199.047 142.01 206.107 242.345C216.25 385.979 525.703 517.426 525.703 517.426C525.703 517.426 595.764 188.492 483.985 97.7405ZM393.555 283.585C351.83 299.469 305.111 278.456 289.225 236.731C273.339 195.006 294.353 148.286 336.078 132.401C377.827 116.58 424.521 137.527 440.408 179.255C456.294 220.98 435.279 267.697 393.555 283.585Z"
+                    fill="none"
+                    stroke="#414042"
+                    stroke-width="1"></path><path
+                    d="M423.216 552.913C479.425 552.913 572.942 553.641 572.942 549.797C572.942 545.953 491.81 541.97 435.601 541.97C379.392 541.97 259.27 541.243 259.27 545.088C259.27 548.932 367.007 552.913 423.216 552.913Z"
+                    fill="none"
+                    stroke="#414042"
+                    stroke-width="1"></path></svg
+            >
+        </aside>
+
+        <div
+            class="order-1 col-span-4 col-start-1 md:order-2 md:col-span-7 md:col-start-6 flow prose">
+            <h2>And Back Again</h2>
+            <p>
+                Shortly before leaving Norway I was approached by <a
+                    href="https://www.scandit.com"
+                    rel="noopener"
+                    target="_blank">Scandit</a
+                > to redesign, develop and manage their public facing website. Ready
+                for a new challenge I jumped onboard and buckled up for the “start-up
+                life”. After an amazing onboarding in <a
+                    href="https://en.wikipedia.org/wiki/Z%C3%BCrich"
+                    target="_blank"
+                    rel="noopener">Zürich, Switzerland</a
+                >, I transitioned into full time remote working once again, as I
+                had previously been at HP&nbsp;Software.
+            </p>
+
+            <p>
+                Moving my family back to New Zealand while developing Scandit's
+                new website was a massive undertaking that occupied most of
+                2019, but both were settled and launched respectively by years
+                end. Throughout the course of 2020 I've been building upon the
+                solid foundation laid during 2019, which has allowed us to
+                expand the website with new features and languages.
+            </p>
+
+            <p>
+                With all of this said, I am still open for new challenges. If
+                you would like to have a chat to me about a potential project,
+                collaboration or just want to pick my brain, then please <a
+                    class="eml-protected"
+                    href="mailto:hello@madebydusk.com"
+                    rel="me">get in touch</a
+                >.
+            </p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+---
+
+<section>
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 mb-8 lg:mb-16">
+        <h2
+            class="mb-0 uppercase text-xs tracking-wide leading-normal font-extralight text-gray-500">
+            Journal
+        </h2>
+        <ul class="divide-y divide-solid divide-gray-100">
+            {
+                allPosts
+                    .sort(
+                        (a, b) =>
+                            Date.parse(b.data.pubDate.toISOString()) -
+                            Date.parse(a.data.pubDate.toISOString()),
+                    )
+                    .slice(0, 3)
+                    .map((post, index) => (
+                        <li class="py-8">
+                            <article>
+                                <header class="flex flex-col lg:flex-row gap-4 mb-4 justify-between items-baseline">
+                                    <h3 class="mb-0">
+                                        <a
+                                            href={`/journal/${post.slug}/`}
+                                            class="text-lg">
+                                            {post.data.title}
+                                        </a>
+                                    </h3>
+                                    <time
+                                        datetime={post.data.pubDate.toISOString()}
+                                        class="uppercase text-xs tracking-wide leading-normal font-extralight text-gray-500">
+                                        {post.data.pubDate.toLocaleDateString(
+                                            "en-nz",
+                                            {
+                                                year: "numeric",
+                                                month: "long",
+                                                day: "2-digit",
+                                            },
+                                        )}
+                                    </time>
+                                </header>
+                                <p class="max-w-4xl">{post.data.description}</p>
+                            </article>
+                        </li>
+                    ))
+            }
+        </ul>
+        <p class="text-right">
+            <a href="/journal/" class="btn-text text-sm">More journal entries</a
+            >
+        </p>
+    </div>
+</section>

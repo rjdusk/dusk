@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PortfolioItem from "@/components/entries/PortfolioItem.astro";
+
+export async function getStaticPaths({ paginate }) {
+    const allPosts = (await getCollection("portfolio")).sort(
+        (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+    );
+    const formattedPosts = allPosts;
+    return paginate(formattedPosts, {
+        pageSize: 5,
+    });
+}
+const { page } = Astro.props;
+---
+
+<BaseLayout
+    title="The Creative Output of Rhys Jones"
+    description="Selected works by Rhys Jones, a photographer, graphic designer and front-end developer based in New Zealand.">
+    <div
+        class="absolute left-1/2 -translate-x-1/2 max-w-screen-2xl -mt-8 md:-mt-12 lg:-mt-24 w-full flex justify-end px-8">
+        <h1
+            class="font-light text-4xl md:text-6xl lg:text-8xl text-gray-100/20">
+            Selected Works
+        </h1>
+    </div>
+    <section>
+        <div class="max-w-screen-2xl mx-auto mb-8 lg:mb-16 px-4 lg:px-8">
+            {
+                page.data
+                    .sort(
+                        (a, b) =>
+                            Date.parse(b.data.pubDate) -
+                            Date.parse(a.data.pubDate),
+                    )
+                    .map((post, index) => (
+                        <PortfolioItem
+                            url={`/portfolio/${post.slug}/`}
+                            title={post.data.title}
+                            pubDate={post.data.pubDate}
+                            tags={post.data.tags}
+                            description={post.data.description}
+                            image={post.data.image.url}
+                            alt={post.data.image.alt}
+                            linktext={post.data.linkText}
+                            position={index}
+                        />
+                    ))
+            }
+        </div>
+    </section>
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+import { SEO } from "astro-seo";
+const {
+    title = "Photographer, Graphic Designer & Web Developer, New Zealand",
+    description = "The creative output of Rhys Jones. A photographer, graphic designer and front-end developer based in New Zealand.",
+    openGraphBasicTitle = title + " | Dusk",
+    openGraphBasicType = "website",
+    openGraphBasicImage = "/og.jpg",
+    openGraphImageAlt = "The Dusk logo",
+    openGraphImageWidth = 1200,
+    openGraphImageHeight = 630,
+    openGraphBasicUrl = "/og.jpg",
+} = Astro.props;
+---
+
+<SEO
+    charset="UTF-8"
+    {title}
+    titleTemplate="%s | Dusk"
+    {description}
+    extend={{
+        meta: [
+            {
+                name: "viewport",
+                content: "width=device-width, initial-scale=1",
+            },
+            { httpEquiv: "X-UA-Compatible", content: "IE=edge,chrome=1" },
+            { name: "author", content: "Rhys Jones" },
+        ],
+        link: [
+            { rel: "icon", href: "/favicon.ico" },
+            { rel: "icon", href: "/icon.svg", type: "image/svg+xml" },
+            { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+            { rel: "manifest", href: "/manifest.webmanifest" },
+        ],
+    }}
+    openGraph={{
+        basic: {
+            title: openGraphBasicTitle,
+            type: openGraphBasicType,
+            image: openGraphBasicImage,
+            url: Astro.url.href,
+        },
+        image: {
+            secureUrl: openGraphBasicImage,
+            type: "image/jpg",
+            width: openGraphImageWidth,
+            height: openGraphImageHeight,
+            alt: openGraphImageAlt,
+        },
+    }}
+/>

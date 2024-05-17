@@ -2,25 +2,28 @@
 pubDate: 2018-03-21
 author: Rhys Jones
 title: Fuck Facebook
-description: I'm done with the self masturbatory of social media, with the likes of Facebook, the loves of Instagram and the rest of that ilk. It's a massive distraction of FOMO, popularity contests and ego stroking.
+description: I'm done with the self masturbatory of social media, with the likes of Facebook, the loves of Instagram and the rest of that ilk.
 
 image:
-  url: "./cover--fuck-facebook.png"
+  url: "../../images/journal/cover--fuck-facebook.png"
   alt: "Fuck Facebook with love"
 
 tags: ["social-media"]
 ---
-import { Cloudinary } from 'astro-cloudinary-image';
+import MDXimage from '@/components/mdx/image.astro';
 
-        <p class="mb-6 text-xl leading-tight font-light">Your data is a gold mine and these platforms are the&nbsp;prospectors.</p>
+<p class="mb-6 text-xl leading-tight font-light">Your data is a gold mine and these platforms are the&nbsp;prospectors.</p>
 
 I'm done with the self masturbatory of social media, with the likes of Facebook, the loves of Instagram and the rest of that ilk. It's a massive distraction of <abbr title="Fear of missing out">FOMO</abbr>, popularity contests and ego stroking. These platforms actively encourage such behaviour in order to keep users within their sites and apps for longer to increase advertising revenues and extract more data out of each individual.
 
 I deleted my Facebook account today. I've been here before, back in 2013 shortly after [Edward Snowden leaked that trove of NSA documents](https://www.theguardian.com/us-news/the-nsa-files). However, over time I was contacted by several friends asking me to get back on. Saying I was wearing a tinfoil hat and far too paranoid for my own good. With a little resentment I signed back up. I never really engaged on the platform after that. Never added anything of much interest and would only log on via a [separate browser](http://fluidapp.com/). I found Facebook of little interest as a platform and figured if I'm not feeding any data into the system, then there was little harm in keeping an account.
 
-During the ensuing years though, my resentment grew towards these types of platforms. I started to find them insidious, invasive and hostile towards my right to privacy. The quality of the communities diminished greatly, now it's more about pushing thinly veiled advertisements through ​“influencers” and getting the most likes.
+During the ensuing years though, my resentment grew towards these types of platforms. I started to find them insidious, invasive and hostile towards my right to privacy. The quality of the communities diminished greatly, now it's more about pushing thinly veiled advertisements through “influencers” and getting the most likes.
 
-        <figure class="-mx-4 lg:-mx-8 bg-gray-100"><Cloudinary width="880" height="589" resize="scale" alt="You've been Zucked, suckers!" src="journal/f-facebook-img" errorImage="images/NotFound.svg" /><figcaption class="bg-yellow-50 text-xs">Photo by <a href="https://unsplash.com/@anniespratt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener">Annie Spratt</a> on <a href="https://unsplash.com/s/photos/delete-facebook?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener">Unsplash</a></figcaption></figure>
+<figure class="-mx-4 lg:-mx-8 bg-gray-100">
+    <MDXimage alt="You've been Zucked, suckers!" imagePath="/src/images/journal/f-facebook-img.jpg" width={880} height={408} widths={[320, 640, 960]} />
+    <figcaption class="bg-yellow-50 text-xs">Photo by <a href="https://unsplash.com/@anniespratt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener">Annie Spratt</a> on <a href="https://unsplash.com/s/photos/delete-facebook?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener">Unsplash</a></figcaption>
+</figure>
 
 Fast forward to March 2018 and the [Cambridge Analytica debacle](https://www.theguardian.com/news/2018/mar/17/cambridge-analytica-facebook-influence-us-election). For me this was the straw that broke the camels back, I've simply had enough of this shit. I posted to my Facebook timeline that I was deleting my account within 24 hours, then ran a script that went back through my timeline and deleted all my posts. Once that was complete I went to [this rather well hidden help page](https://facebook.com/help/delete_account) and hit "Delete".
 

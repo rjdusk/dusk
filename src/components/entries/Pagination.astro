@@ -1,55 +1,65 @@
 ---
-const { length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } = Astro.props;
-const paginationList = Array.from({length: `${length}`}, (_, i) => i + 1);
+const { length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } =
+    Astro.props;
+const paginationList = Array.from({ length: `${length}` }, (_, i) => i + 1);
 ---
 
-<nav aria-label="Journal pages" class="m-0 p-0 flex items-center">
-	{ firstUrl == currentUrl ? (
-		<span class="pagination__link disabled">
-			<i class="not-italic"></i>
-		</span>
-	) : (
-		<a href={firstUrl} class="pagination__link no-underline p-2">
-			<i class="not-italic">«</i>
-		</a>
-	)}
+<nav aria-label="Journal pages" class="m-0 p-0 flex gap-4 items-center">
+    {
+        firstUrl == currentUrl ? (
+            <span class="pagination__link disabled">
+                <i class="not-italic" />
+            </span>
+        ) : (
+            <a href={firstUrl} class="pagination__link no-underline p-2">
+                <i class="not-italic">«</i>
+            </a>
+        )
+    }
 
-	{ prevUrl ? (
-		<a href={prevUrl} class="pagination__link no-underline p-2">
-			<i class="not-italic">←</i>
-		</a>
-	) : (
-		<span class="pagination__link disabled">
-			<i></i>
-		</span>
-	)}
+    {
+        prevUrl ? (
+            <a href={prevUrl} class="pagination__link no-underline p-2">
+                <i class="not-italic">←</i>
+            </a>
+        ) : (
+            <span class="pagination__link disabled">
+                <i />
+            </span>
+        )
+    }
 
-	{
-		paginationList.map((num) => (
-			<a href={`${firstUrl}${num == 1 ? "" : '/'+(num)}`} class={`text-lg p-2 ${currentPage == num ? "disabled active cursor-default pointer-events-none" : "no-underline"}`}>
-				{num}
-			</a>
-		))
-	}
+    {
+        paginationList.map((num) => (
+            <a
+                href={`${firstUrl}${num == 1 ? "" : num + "/"}`}
+                class={`text-lg p-2 ${currentPage == num ? "disabled active cursor-default pointer-events-none" : "no-underline"}`}>
+                {num}
+            </a>
+        ))
+    }
 
-	{ !nextUrl ? (
-		<span class="pagination__link disabled">
-			<i></i>
-		</span>
-	) : (
-		<a href={nextUrl} class="pagination__link no-underline p-2">
-			<i class="not-italic">→</i>
-		</a>
-	)}
+    {
+        !nextUrl ? (
+            <span class="pagination__link disabled">
+                <i />
+            </span>
+        ) : (
+            <a href={nextUrl} class="pagination__link no-underline p-2">
+                <i class="not-italic">→</i>
+            </a>
+        )
+    }
 
-	{ lastUrl == currentUrl ? (
-		<span class="pagination__link disabled">
-			<i></i>
-		</span>
-	) : (
-		<a href={lastUrl} class="pagination__link no-underline p-2">
-			<i class="not-italic">»</i>
-		</a>
-	)}
-
+    {
+        lastUrl == currentUrl ? (
+            <span class="pagination__link disabled">
+                <i />
+            </span>
+        ) : (
+            <a href={lastUrl} class="pagination__link no-underline p-2">
+                <i class="not-italic">»</i>
+            </a>
+        )
+    }
 </nav>

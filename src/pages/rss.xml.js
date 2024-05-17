@@ -1,18 +1,23 @@
-import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
+import rss from '@astrojs/rss';
+import { getCollection } from 'astro:content';
+// import sanitizeHtml from 'sanitize-html';
+// import MarkdownIt from 'markdown-it';
+// const parser = new MarkdownIt();
 
-export async function get() {
-  const posts = await getCollection('posts');
+export async function GET(context) {
+const posts = (await getCollection("posts")).sort(
+    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+);
   return rss({
-    title: 'Astro Learner | Blog',
-    description: 'My journey learning Astro',
-    site: 'https://my-blog-site.netlify.app',
+    title: 'Dusk | The journal of Rhys Jones',
+    description: 'Intersections of life, design, and code.',
+    site: context.site,
     items: posts.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.pubDate,
-      description: post.data.description,
-      link: `/posts/${post.slug}/`,
+        title: post.data.title,
+        pubDate: post.data.pubDate,
+        description: post.data.description,
+        customData: post.data.customData,
+        link: `/journal/${post.slug}/`,
     })),
-    customData: `<language>en-us</language>`,
   });
 }

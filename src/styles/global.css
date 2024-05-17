@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
 
 @layer base {
     @font-face {
@@ -58,6 +59,18 @@
 
     code {
         @apply text-sm;
+        counter-reset: step;
+        counter-increment: step 0;
+    }
+
+    code .line::before {
+        content: counter(step);
+        counter-increment: step;
+        width: 1rem;
+        margin-right: 1.5rem;
+        display: inline-block;
+        text-align: right;
+        color: rgba(115, 138, 148, .4)
     }
 
     blockquote {
@@ -94,7 +107,7 @@
         line-height: 1.8;
         max-width: 50rem;
 
-        h2 {
+        h2:not(:first-child) {
             @apply mt-16;
         }
 
@@ -113,7 +126,7 @@
     }
 
     /* Images */
-    .img-fill>img {
+    /* .img-fill>img {
         object-fit: cover;
-    }
+    } */
 }

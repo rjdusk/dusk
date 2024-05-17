@@ -5,12 +5,12 @@ title: So it's been a while
 description: A reflection on where I have come from and a death of a father. Thoughts about my future and pulling myself together.
 
 image:
-  url: "./cover--been-awhile.png"
+  url: "../../images/journal/cover--been-awhile.png"
   alt: "A very long while"
 
 tags: ["life"]
 ---
-import { Cloudinary } from 'astro-cloudinary-image';
+import MDXimage from '@/components/mdx/image.astro';
 
 This is going to be a long and personal post, so if you have no interest in hearing about my life then stop reading now…
 
@@ -18,7 +18,10 @@ This is going to be a long and personal post, so if you have no interest in hear
 
 Cast your mind back to 2008, the Australian Prime Minister Kevin Rudd makes an <a href="https://en.wikipedia.org/wiki/Stolen_Generations#Australian_federal_parliament_apology" target="_blank">historic apology to Indigenous Australians and the Stolen Generation</a>, Barack Obama becomes the first African-American to be elected President of the United States, Bill Gates leaves Microsoft and my father passes away… remember that last point, it has a big significance to this story.
 
-        <div class="-mx-4 lg:-mx-8 bg-gray-100"><Cloudinary width="880" height="495" resize="fill" alt="Dawn in Canberra, Australia" src="journal/canberra-dawn" errorImage="images/NotFound.svg" /></div>
+<figure class="-mx-4 lg:-mx-8 bg-gray-100">
+    <MDXimage alt="Dawn in Canberra, Australia" imagePath="/src/images/journal/canberra-dawn.jpg" width={880} height={495} widths={[320, 640, 960]} />
+    <figcaption class="bg-yellow-50 text-xs">Dawn in Canberra, Australia</figcaption>
+</figure>
 
 It's March and my wife has just submitted her finished PhD thesis to the Australian National University (ANU) in Canberra, where we have spent the past 4 years living and working. I work for a small software company called <a href="https://en.wikipedia.org/wiki/Tower_Software" target="_blank">Tower Software</a> as their in-house web monkey and graphic designer. It's a great first real job because the people and atmosphere is relaxed, super friendly and creative. I'm given freedom to try things out, which is quite daunting for little 23 year old me.
 
@@ -46,7 +49,10 @@ The departure was everything we expected, lots of tears and heartache. We left a
 
 Farewells are said, tears are shed and the hugs are long… it's one of those farewells, the hardest kind-or at least I thought at the time, a much harder one is only 3 weeks away. We board a plane going from Christchurch, New Zealand to Los Angeles, then on to New York, then Stockholm, Sweden and then Umeå. It sucks. As most international air travel sucks in cattle class, not enough leg room, shitty meals, shitty people and shitty entertainment. Plus a total travel time of 52 hours thanks to the stop over in New York, the one and only time I have ever eaten a Philly sub for breakfast, sweet baby jesus.
 
-        <div class="-mx-4 lg:-mx-8 bg-gray-100"><Cloudinary width="880" height="495" resize="fill" alt="Somewhere in Northern Sweden" src="journal/sweden-river" errorImage="images/NotFound.svg" /></div>
+<figure class="-mx-4 lg:-mx-8 bg-gray-100">
+    <MDXimage alt="Somewhere in Northern Sweden" imagePath="/src/images/journal/sweden-river.jpg" width={880} height={495} widths={[320, 640, 960]} />
+    <figcaption class="bg-yellow-50 text-xs">Somewhere in Northern Sweden</figcaption>
+</figure>
 
 At the end of this 2 day ordeal, we step out bleary eyed into a crisp Swedish summer and it's amazing. The birds are singing, there are fields full of rolling green hills, cool quiet forests and lakes are welcoming, it was absolutely surreal. We are both extremely home sick and jet-lagged, but we're also very eager to explore our new surroundings. After we sort out our apartment and get some sleep, we set about acquiring some new bikes since Umeå is mostly flat, as is most of Sweden-Norway stole all the mountains.
 
@@ -63,15 +69,21 @@ My brother stays on the line, we talk, we cry, I'm confused, most of the call is
 
 Suffice to say a funeral happens and the time was spent grieving with family. After another round-the-world trip we are back in Sweden, winter is closing in, the day light is diminishing and I'm miserable. I feel like the wind has been kicked out of me. I have no confidence in the art I produce or the words I speak. This is how 2008 ends.
 
-        <div class="-mx-4 lg:-mx-8 bg-gray-100"><Cloudinary width="880" height="495" resize="fill" alt="A Swedish winter" src="journal/sweden-winter" errorImage="images/NotFound.svg" /></div>
-                                                                                                                                                                  
+<figure class="-mx-4 lg:-mx-8 bg-gray-100">
+    <MDXimage alt="A Swedish winter" imagePath="/src/images/journal/sweden-winter.jpg" width={880} height={495} widths={[320, 640, 960]} />
+    <figcaption class="bg-yellow-50 text-xs">A Swedish winter</figcaption>
+</figure>
+
 The feeling persists well into 2010 when we move from Sweden to Norway. I've skipped over 2009 because I don't think it would make very compelling reading. The time spent in Sweden was great, it's just I wasn't in the best frame of mind to enjoy it. Regardless of this I'm grateful that I took up running, cross country skiing and cycling there, it kept me from starting up smoking again, well that and the price of the junk. Sweden was really interesting, a complete reversal of the type of lifestyle we had been living while in Australia. We spent most weekends outside the apartment, either in a tent in some far off forest camping or in a wood cabin tucked away in some mountain range skiing. This helped with taking my mind off my fathers death. In fact, a lot of the things I did were to take my mind off this.
 
 April 2010 is when we arrive in <a href="https://en.wikipedia.org/wiki/Troms%C3%B8" target="_blank">Tromsø, Norway</a>, a small island located 350 km north of the Arctic Circle. We are now about as far away from New Zealand as one can get. The distance from home hurts but I feel revitalized by the landscape, the fjords, the open sea and the snow covered mountains, they are all magnificent. The first two photographs on my Norway collection page are the very first photographs I took in Tromsø. I still love these two, they remind me of the time when I started feeling alive again.
 
 We continue to explore Troms (Troms is the county and Tromsø is the town), my wife starts her new Postdoctoral position at the <a href="http://uit.no/" target="_blank">University of Tromsø (UiT)</a> and I continue working for HP remotely. The next 18 months see us travel all over the globe for work and pleasure, from San Francisco, Las Vegas, Cannes, Zürich, London, Reykjavík, Svalbard, China, Melbourne, Canberra, Christchurch and a myriad of other locations. It was nuts and amazing and most importantly for me at the time, it kept my mind occupied. Though if there is one thing I learned from that period of my life, it's that one should never spend more than 3 days in Las Vegas, what a cesspool.
 
-        <div class="-mx-4 lg:-mx-8 bg-gray-100"><Cloudinary width="880" height="495" resize="fill" alt="Video shoot in Zürich, Switzerland" src="journal/zurich-green-screen" errorImage="images/NotFound.svg" /></div>
+<figure class="-mx-4 lg:-mx-8 bg-gray-100">
+    <MDXimage alt="Video shoot in Zürich, Switzerland" imagePath="/src/images/journal/zurich-green-screen.jpg" width={880} height={495} widths={[320, 640, 960]} />
+    <figcaption class="bg-yellow-50 text-xs">Video shoot in Zürich, Switzerland</figcaption>
+</figure>
 
 Fast-forward to another *“working well into the night”* evening in July 2011, my wife bursts in with a rather anxious tone to her voice:
 
@@ -91,7 +103,10 @@ So begins my journey into fatherhood. All of the sleepless nights, poopy nappies
 
 The following year just gets better as my daughter continues to grow and starts walking, then running, then talking and then a whole slew of other seemingly uninteresting things to other people, but to me every single one of them is amazing. She is at kindergarten (barnehage/day care) from the age of 1 and takes to it like a fish to water. My wife and I return to full-time work, we take a family vacation to Croatia and Switzerland, life is grand. I continue to keep my head low though and decide not to work on any of my personal projects-like this website-until a later date. I want to concentrate on trying things out at ArcticZymes, I'm having great fun doing so and I'm going from strength to strength. Actually seeing my work printed in magazines, on posters, being produced into real tangible things, it's a great feeling. 2013 is a good year and we end it back in New Zealand with the whole family.
 
-        <div class="-mx-4 lg:-mx-8 bg-gray-100"><Cloudinary width="880" height="495" resize="fill" alt="Rastoke, Croatia" src="journal/croatia-holiday-2013" errorImage="images/NotFound.svg" /></div>
+<figure class="-mx-4 lg:-mx-8 bg-gray-100">
+    <MDXimage alt="Rastoke, Croatia" imagePath="/src/images/journal/croatia-holiday-2013.jpg" width={880} height={495} widths={[320, 640, 960]} />
+    <figcaption class="bg-yellow-50 text-xs">Rastoke, Croatia</figcaption>
+</figure>
 
 During this trip there was one event that happened which affected me in such a substantial way, for how simple a gesture it was. I went to visit my father and while I'm placing flowers on his headstone, my daughter runs off, picks some dandelions and places them right next to the flowers I have just placed. Then looks at me sombrely like she understands, like she's feeling what I'm feeling. For me, I see it as time to stop grieving and time to move on, I have a family of my own now.
 

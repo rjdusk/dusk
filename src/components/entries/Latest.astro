@@ -1,70 +1,62 @@
 ---
 import { Picture } from "astro:assets";
-import { Cloudinary } from "astro-cloudinary-image";
-import { ImageMissingAlt } from "astro/dist/core/errors/errors-data";
 const { title, url, pubDate, description, tags, image, alt } = Astro.props;
 ---
 
 <div class="grid grid-cols-4 gap-x-16 gap-y-4">
-  <div class="col-span-4 md:col-span-3 md:col-start-2">
-    <a href={url} class="flex w-full items-center justify-between gap-8 group">
-      <h1>{title}</h1>
-      <svg
-        class="h-[2em] w-[2em] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 duration-200 ease-out text-inherit fill-current leading-none"
-        viewBox="0 0 48 48">
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round">
-          <line x1="37" y1="14" x2="47" y2="24"></line>
-          <line x1="47" y1="24" x2="37" y2="34"></line>
-          <line x1="47" y1="24" x2="1.5" y2="24"></line>
-        </g>
-      </svg>
-    </a>
-  </div>
-  <div
-    class="col-span-4 md:col-span-1 tracking-wider font-extralight text-gray-500">
-    <time
-      datetime={`${pubDate.toISOString()}`}
-      class="block pt-0 mb-2 text-xs uppercase leading-normal">
-      {
-        `${pubDate.toLocaleDateString("en-gb", {
-          year: "numeric",
-          month: "long",
-          day: "2-digit",
-        })}`
-      }
-    </time>
-    <ul class="flex gap-2">
-      {
-        tags.map((tag) => (
-          <li class="text-xs tracking-wide leading-normal text-xs">
-            <a href={`/journal/tags/${tag}`}>#{tag}</a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-  <div class="col-span-4 md:col-span-3">
-    <p>{description}</p>
-  </div>
-  <figure class="mt-4 -mx-4 lg:-mx-8 col-span-4 aspect-[16/9]">
-    <Picture
-      src={image}
-      formats={["avif", "webp"]}
-      alt={alt}
-      width="1280"
-      height="960"
-    />
-    <!-- <Cloudinary
-      width="1920"
-      height="1080"
-      resize="fill"
-      alt={alt}
-      src={image}
-      errorImage="/images/NotFound.svg"
-    /> -->
-  </figure>
+    <div class="col-span-4 md:col-span-3 md:col-start-2">
+        <a
+            href={url}
+            class="flex w-full items-center justify-between gap-8 group">
+            <h1>{title}</h1>
+            <svg
+                class="h-[2em] w-[2em] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 duration-200 ease-out text-inherit fill-current leading-none"
+                viewBox="0 0 48 48">
+                <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="37" y1="14" x2="47" y2="24"></line>
+                    <line x1="47" y1="24" x2="37" y2="34"></line>
+                    <line x1="47" y1="24" x2="1.5" y2="24"></line>
+                </g>
+            </svg>
+        </a>
+    </div>
+    <div
+        class="col-span-4 md:col-span-1 text-xs tracking-wide leading-normal font-extralight text-gray-500">
+        <time
+            datetime={`${pubDate.toISOString()}`}
+            class="block pt-0 mb-2 uppercase">
+            {
+                `${pubDate.toLocaleDateString("en-nz", {
+                    year: "numeric",
+                    month: "long",
+                    day: "2-digit",
+                })}`
+            }
+        </time>
+        <ul class="flex gap-2">
+            {
+                tags.map((tag) => (
+                    <li class="">
+                        <a href={`/journal/tags/${tag}/`}>#{tag}</a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+    <div class="col-span-4 md:col-span-3">
+        <p>{description}</p>
+    </div>
+    <figure class="mt-4 -mx-4 lg:-mx-8 col-span-4 aspect-[16/9]">
+        <Picture
+            src={image}
+            formats={["avif", "webp"]}
+            alt={alt}
+            width="1280"
+            height="960"
+        />
+    </figure>
 </div>
