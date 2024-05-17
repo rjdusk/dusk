@@ -9,6 +9,8 @@ import autoprefixer from "autoprefixer";
 import alpinejs from "@astrojs/alpinejs";
 import playformCompress from "@playform/compress";
 
+import playformInline from "@playform/inline";
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -31,12 +33,12 @@ export default defineConfig({
     // Example: Disable injecting a basic `base.css` import on every page.
     // Useful if you need to define and/or import your own custom `base.css`.
     applyBaseStyles: false
-  }), sitemap(), mdx(), alpinejs(), playformCompress({
+  }), sitemap(), mdx(), alpinejs(), playformInline(), playformCompress({
     CSS: true,
     HTML: true,
     Image: false,
     JavaScript: true,
-    SVG: false,
+    SVG: false
   })],
   vite: {
     server: {
