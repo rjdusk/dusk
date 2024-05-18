@@ -8,7 +8,6 @@ import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import alpinejs from "@astrojs/alpinejs";
 import playformCompress from "@playform/compress";
-
 import playformInline from "@playform/inline";
 
 // https://astro.build/config

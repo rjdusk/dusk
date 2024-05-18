@@ -5,12 +5,31 @@
 
 @layer base {
     @font-face {
+        font-family: "Larken Fallback";
+        src: local("Georgia");
+    }
+
+    @font-face {
+        font-family: "tabular-numbers";
+        src: local("charter"), local("cambria");
+        unicode-range: U+0030-0039;
+    }
+
+    @font-face {
         font-family: "Larken";
         src: url("/fonts/larken-variable.woff2") format("woff2"), url("/fonts/larken-variable.woff") format("woff");
         font-weight: 100 900;
         font-stretch: 75% 125%;
         font-feature-settings: "case" 1, "liga" 1, "kern" 1;
         font-display: swap;
+    }
+
+    body {
+        letter-spacing: -0.8px;
+    }
+
+    body.font-loaded {
+        letter-spacing: 0px;
     }
 
     h1 {

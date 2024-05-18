@@ -90,7 +90,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        serif: ["Larken", ...defaultTheme.fontFamily.serif],
+        serif: ['Larken', 'Larken Fallback', 'tabular-numbers', 'serif'],
       },
       aspectRatio: {
         '4/3': '4 / 3',
