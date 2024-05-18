@@ -15,81 +15,10 @@ const {
     openGraphImageHeight = 630,
     openGraphBasicUrl = Astro.url.href,
 } = Astro.props;
----
 
-<head>
-    <SEO
-        charset="UTF-8"
-        {title}
-        titleTemplate="%s | Dusk"
-        {description}
-        extend={{
-            meta: [
-                {
-                    name: "viewport",
-                    content: "width=device-width, initial-scale=1",
-                },
-                {
-                    httpEquiv: "X-UA-Compatible",
-                    content: "IE=edge,chrome=1",
-                },
-                { name: "author", content: "Rhys Jones" },
-            ],
-            link: [
-                { rel: "icon", href: Astro.url.origin + "/favicon.ico" },
-                {
-                    rel: "icon",
-                    href: Astro.url.origin + "/icon.svg",
-                    type: "image/svg+xml",
-                },
-                {
-                    rel: "apple-touch-icon",
-                    href: Astro.url.origin + "/apple-touch-icon.png",
-                },
-                {
-                    rel: "manifest",
-                    href: Astro.url.origin + "/manifest.webmanifest",
-                },
-            ],
-        }}
-        openGraph={{
-            basic: {
-                title: openGraphBasicTitle,
-                type: openGraphBasicType,
-                image: openGraphBasicImage,
-                url: openGraphBasicUrl,
-            },
-            image: {
-                secureUrl: openGraphBasicImage,
-                type: "image/jpg",
-                width: openGraphImageWidth,
-                height: openGraphImageHeight,
-                alt: openGraphImageAlt,
-            },
-            optional: {
-                siteName: "Dusk",
-                description: openGraphBasicDescription,
-            },
-        }}
-        twitter={{
-            card: "summary_large_image",
-        }}
-    />
-    <link
-        rel="alternate"
-        type="application/rss+xml"
-        title="Dusk | The journal of Rhys Jones"
-        href={`${Astro.site}rss.xml`}
-    />
-    <link
-        rel="preload"
-        href="/fonts/larken-variable.woff2"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    />
-    <script is:inline>
-        /* Font Face Observer v2.3.0 - © Bram Stein. License: BSD-3-Clause */ (function () {
+/* Maybe use this later? Font Observer
+<script is:inline>       
+        (function () {
             function p(a, c) {
                 document.addEventListener
                     ? a.addEventListener("scroll", c, !1)
@@ -356,5 +285,78 @@ const {
         font.load().then(function () {
             document.body.classList.add("font-loaded");
         });
-    </script>
+    </script> */
+---
+
+<head>
+    <SEO
+        charset="UTF-8"
+        {title}
+        titleTemplate="%s | Dusk"
+        {description}
+        extend={{
+            meta: [
+                {
+                    name: "viewport",
+                    content: "width=device-width, initial-scale=1",
+                },
+                {
+                    httpEquiv: "X-UA-Compatible",
+                    content: "IE=edge,chrome=1",
+                },
+                { name: "author", content: "Rhys Jones" },
+            ],
+            link: [
+                { rel: "icon", href: Astro.url.origin + "/favicon.ico" },
+                {
+                    rel: "icon",
+                    href: Astro.url.origin + "/icon.svg",
+                    type: "image/svg+xml",
+                },
+                {
+                    rel: "apple-touch-icon",
+                    href: Astro.url.origin + "/apple-touch-icon.png",
+                },
+                {
+                    rel: "manifest",
+                    href: Astro.url.origin + "/manifest.webmanifest",
+                },
+            ],
+        }}
+        openGraph={{
+            basic: {
+                title: openGraphBasicTitle,
+                type: openGraphBasicType,
+                image: openGraphBasicImage,
+                url: openGraphBasicUrl,
+            },
+            image: {
+                secureUrl: openGraphBasicImage,
+                type: "image/jpg",
+                width: openGraphImageWidth,
+                height: openGraphImageHeight,
+                alt: openGraphImageAlt,
+            },
+            optional: {
+                siteName: "Dusk",
+                description: openGraphBasicDescription,
+            },
+        }}
+        twitter={{
+            card: "summary_large_image",
+        }}
+    />
+    <link
+        rel="alternate"
+        type="application/rss+xml"
+        title="Dusk | The journal of Rhys Jones"
+        href={`${Astro.site}rss.xml`}
+    />
+    <link
+        rel="preload"
+        href="/fonts/larken-variable.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin
+    />
 </head>

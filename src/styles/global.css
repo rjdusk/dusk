@@ -4,16 +4,16 @@
 @tailwind variants;
 
 @layer base {
-    @font-face {
+    /* @font-face {
         font-family: "Larken Fallback";
         src: local("Georgia");
-    }
+    } */
 
-    @font-face {
+    /* @font-face {
         font-family: "tabular-numbers";
         src: local("charter"), local("cambria");
         unicode-range: U+0030-0039;
-    }
+    } */
 
     @font-face {
         font-family: "Larken";
@@ -24,13 +24,13 @@
         font-display: swap;
     }
 
-    body {
-        letter-spacing: -0.8px;
+    /* body h1 {
+        letter-spacing: -0.3px;
     }
 
-    body.font-loaded {
-        letter-spacing: 0px;
-    }
+    body.font-loaded h1 {
+        letter-spacing: initial;
+    } */
 
     h1 {
         @apply text-5xl font-bold;
