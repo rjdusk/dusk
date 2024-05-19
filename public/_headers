@@ -7,4 +7,5 @@ https://:dusk-next.pages.dev/*
     X-Frame-Options: DENY
     X-Content-Type-Options: nosniff
     Referrer-Policy: strict-origin
-    Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self'; object-src 'none'; base-uri 'self'; connect-src 'self'; font-src 'self'; frame-src 'self'; img-src 'self'; manifest-src 'self'; media-src 'self'; report-uri https://dusk.report-uri.com/r/d/csp/reportOnly; report-to: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://dusk.report-uri.com/a/d/g"}],"include_subdomains":true}; worker-src 'none';
+    Access-Control-Allow-Origin: https://www.madebydusk.com
+    Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com/beacon.min.js; style-src 'self'; object-src 'none'; base-uri 'self'; connect-src 'self'; font-src 'self'; frame-src 'self'; img-src 'self'; manifest-src 'self'; media-src 'self'; report-uri https://dusk.report-uri.com/r/d/csp/reportOnly; report-to: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://dusk.report-uri.com/a/d/g"}],"include_subdomains":true}; worker-src 'none';
