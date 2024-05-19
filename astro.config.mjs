@@ -6,9 +6,7 @@ import postcssImport from "postcss-import";
 import postcssNesting from "tailwindcss/nesting";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
-import alpinejs from "@astrojs/alpinejs";
 import playformCompress from "@playform/compress";
-// import playformInline from "@playform/inline";
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,10 +27,11 @@ export default defineConfig({
     prefetchAll: true
   },
   integrations: [tailwind({
-    // Example: Disable injecting a basic `base.css` import on every page.
-    // Useful if you need to define and/or import your own custom `base.css`.
     applyBaseStyles: false
-  }), sitemap(), mdx(), alpinejs(), playformCompress({
+  }), 
+  sitemap(), 
+  mdx(), 
+  playformCompress({
     CSS: true,
     HTML: true,
     Image: false,
