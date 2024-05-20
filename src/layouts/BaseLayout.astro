@@ -8,7 +8,7 @@ const { title, description, image } = Astro.props;
 <html lang="en">
     <BaseHead title={title} description={description} openGraphImage={image} />
     <body
-        class="overflow-x-hidden bg-yellow-50 text-base font-serif text-gray-800 font-light">
+        class="overflow-x-hidden bg-yellow-50 text-base font-serif text-gray-800 font-normal lg:font-light">
         <Navigation />
         <main>
             <slot />

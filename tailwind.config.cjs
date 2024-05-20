@@ -123,6 +123,9 @@ module.exports = {
       aspectRatio: {
         '4/3': '4 / 3',
       },
+      height: {
+        screen: ['100vh /* fallback for Opera, IE and etc. */', '100dvh'],
+      }
     },
   },
   plugins: [

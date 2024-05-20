@@ -26,18 +26,20 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true
   },
-  integrations: [tailwind({
-    applyBaseStyles: false
-  }), 
-  sitemap(), 
-  mdx(), 
-  playformCompress({
-    CSS: true,
-    HTML: true,
-    Image: false,
-    JavaScript: true,
-    SVG: false
-  })],
+  integrations: [
+    tailwind({
+        applyBaseStyles: false
+    }), 
+    sitemap(), 
+    mdx(),
+    playformCompress({
+        CSS: true,
+        HTML: true,
+        Image: false,
+        JavaScript: true,
+        SVG: false
+    })
+  ],
   vite: {
     server: {
       watch: {

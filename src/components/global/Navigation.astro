@@ -1,99 +1,124 @@
 ---
-// Based on this pen: https://codepen.io/TahseenAlaa/pen/gORezZR
+// Based on this: https://codyhouse.co/ds/components/info/main-header
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.split("/")[1];
 ---
 
-<header class="sticky top-0 z-50 w-full md:pt-1 md:px-4 mb-4 md:mb-8 lg:mb-16">
+<header
+    class="header js-header sticky top-0 z-50 w-full md:pt-1 md:px-4 mb-4 md:mb-8 lg:mb-16">
     <div
-        class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4 bg-yellow-50/80 backdrop-blur-md rounded p-4">
-        <a class="flex-shrink-0 flex items-center w-6 h-6" href="/"
-            ><svg
-                viewBox="0 0 46 48"
-                width="46"
-                height="48"
-                fill="currentColor"
-                class="object-contain w-full h-full">
-                <path
-                    fill-rule="evenodd"
-                    d="M22.2396694,0 C36.7809917,0 46,7.1915061 46,21.8352941 C46,37.1089265 35.0892562,48 18.8181818,48 C6.44380165,48 0,40.6008651 0,33.3176471 C0,27.5202517 3.45950413,22.8391663 8.55371901,21.0823529 L8.55371901,6.96470588 C8.62975207,2.18953991 7.56528926,1.86865906 2.47107438,1.50588235 L2.47107438,0 L22.2396694,0 Z M22.2380952,3 L16.5238095,3 C15.3624801,3 14.6565978,3.67349666 14.6190476,4.86666667 L14.6190476,20.36 C21.0667727,21.0534521 25.7980922,25.1505568 25.8571429,30.6266667 C25.7980922,33.5318486 24.4054054,36.0013363 21.2857143,36.04 C19.2734499,36.0013363 17.518283,34.6356347 17.4761905,32.68 C17.518283,31.1746102 18.2050874,30.4262806 18.8095238,29.6933333 C19.4260731,29.1167038 19.9984102,28.5554566 19.952381,27.64 C19.9984102,25.636971 17.7281399,23.1674833 12.9047619,23.16 C7.86486486,23.1674833 3,26.5162584 3,33.24 C3,40.7158129 10.154213,45 18.6190476,45 C30.8346582,45 39,37.7412027 39,22.04 C39,6.53585746 31.5977742,3 22.2380952,3 Z"
-                ></path>
-                <title>Return home</title>
-            </svg></a
-        >
-        <ul
-            id="menu"
-            class="hidden fixed top-0 right-0 px-16 py-16 space-y-8 text-center font-bold tracking-wide uppercase text-2xl md:text-xs bg-yellow-50 z-50
-            md:relative md:flex md:p-0 md:bg-transparent md:flex-row md:space-x-12 md:space-y-0">
-            <li class="md:hidden z-90 fixed top-1 right-4">
-                <button class="hover:text-yellow-600 duration-150 menu-toggle"
-                    ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24">
-                        <path
-                            fill="currentColor"
-                            fill-rule="evenodd"
-                            d="M17.778.808l1.414 1.414L11.414 10l7.778 7.778-1.414 1.414L10 11.414l-7.778 7.778-1.414-1.414L8.586 10 .808 2.222 2.222.808 10 8.586 17.778.808z"
-                        ></path>
-                    </svg></button
-                >
-            </li>
-
-            <li>
-                <a
-                    href="/"
-                    class={currentPath === "" ? "text-yellow-600" : ""}
-                    aria-current={`${currentPath === "" ? "page" : ""}`}>Home</a
-                >
-            </li>
-            <li>
-                <a
-                    href="/portfolio/"
-                    class={currentPath === "portfolio" ? "text-yellow-600" : ""}
-                    aria-current={`${currentPath === "portfolio" ? "page" : ""}`}
-                    >Portfolio</a
-                >
-            </li>
-            <li>
-                <a
-                    href="/journal/"
-                    class={currentPath === "journal" ? "text-yellow-600" : ""}
-                    aria-current={`${currentPath === "journal" ? "page" : ""}`}
-                    >Journal</a
-                >
-            </li>
-
-            <li>
-                <a
-                    href="/about/"
-                    class={currentPath === "about" ? "text-yellow-600" : ""}
-                    aria-current={`${currentPath === "about" ? "page" : ""}`}
-                    >About &amp; Contact</a
-                >
-            </li>
-        </ul>
-
-        <div class="flex items-center md:hidden">
-            <button class="hover:text-yellow-600 duration-150 menu-toggle"
-                ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-                    <g fill="currentColor" fill-rule="evenodd">
-                        <path d="M0 0h24v2H0zM0 7h24v2H0zM0 14h24v2H0z"></path>
-                    </g>
-                </svg></button
-            >
+        class="header__container max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4 bg-yellow-50/80 backdrop-blur-md rounded p-4">
+        <div class="header__logo w-6 h-6 shrink-0 relative z-10">
+            <a href="/" class="block">
+                <svg
+                    viewBox="0 0 46 48"
+                    width="46"
+                    height="48"
+                    fill="currentColor"
+                    class="object-contain w-full h-full">
+                    <path
+                        fill-rule="evenodd"
+                        d="M22.2396694,0 C36.7809917,0 46,7.1915061 46,21.8352941 C46,37.1089265 35.0892562,48 18.8181818,48 C6.44380165,48 0,40.6008651 0,33.3176471 C0,27.5202517 3.45950413,22.8391663 8.55371901,21.0823529 L8.55371901,6.96470588 C8.62975207,2.18953991 7.56528926,1.86865906 2.47107438,1.50588235 L2.47107438,0 L22.2396694,0 Z M22.2380952,3 L16.5238095,3 C15.3624801,3 14.6565978,3.67349666 14.6190476,4.86666667 L14.6190476,20.36 C21.0667727,21.0534521 25.7980922,25.1505568 25.8571429,30.6266667 C25.7980922,33.5318486 24.4054054,36.0013363 21.2857143,36.04 C19.2734499,36.0013363 17.518283,34.6356347 17.4761905,32.68 C17.518283,31.1746102 18.2050874,30.4262806 18.8095238,29.6933333 C19.4260731,29.1167038 19.9984102,28.5554566 19.952381,27.64 C19.9984102,25.636971 17.7281399,23.1674833 12.9047619,23.16 C7.86486486,23.1674833 3,26.5162584 3,33.24 C3,40.7158129 10.154213,45 18.6190476,45 C30.8346582,45 39,37.7412027 39,22.04 C39,6.53585746 31.5977742,3 22.2380952,3 Z"
+                    ></path>
+                    <title>Return home</title>
+                </svg>
+            </a>
         </div>
+
+        <button
+            class="z-10 bg-yellow-100 text-gray-800 text-sm font-bold uppercase px-4 py-2 rounded relative inline-flex justify-center items-center whitespace-nowrap cursor-pointer no-underline leading-none transition-all duration-200 header__trigger lg:hidden js-header__trigger"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="header-nav">
+            <i
+                class="not-italic header__trigger-icon relative block h-[2px] w-4 bg-current mr-2 duration-200"
+                aria-hidden="true"></i>
+            <span class="leading-normal">Menu</span>
+        </button>
+
+        <nav
+            class="header__nav js-header__nav absolute z-[1] top-0 left-0 w-full max-h-screen h-screen bg-white shadow-lg overflow-auto overscroll-contain hidden lg:static lg:bg-transparent lg:w-auto lg:shadow-none lg:overflow-visible lg:overscroll-auto lg:block lg:max-h-none lg:h-auto"
+            id="header-nav"
+            role="navigation"
+            aria-label="Main">
+            <div class="header__nav-inner h-full">
+                <ul
+                    class="header__list px-8 py-8 lg:p-0 lg:m-0 h-full flex flex-col justify-center lg:flex-row gap-8 lg:gap-12 font-bold text-lg lg:text-xs text-right lg:text-left uppercase tracking-wide">
+                    <li class="header__item">
+                        <a
+                            href="/"
+                            class={currentPath === "" ? "text-yellow-600" : ""}
+                            aria-current={`${currentPath === "" ? "page" : ""}`}
+                            >Home</a
+                        >
+                    </li>
+                    <li class="header__item">
+                        <a
+                            href="/portfolio/"
+                            class={currentPath === "portfolio"
+                                ? "text-yellow-600"
+                                : ""}
+                            aria-current={`${currentPath === "portfolio" ? "page" : ""}`}
+                            >Portfolio</a
+                        >
+                    </li>
+                    <li class="header__item">
+                        <a
+                            href="/journal/"
+                            class={currentPath === "journal"
+                                ? "text-yellow-600"
+                                : ""}
+                            aria-current={`${currentPath === "journal" ? "page" : ""}`}
+                            >Journal</a
+                        >
+                    </li>
+                    <li class="header__item">
+                        <a
+                            href="/about/"
+                            class={currentPath === "about"
+                                ? "text-yellow-600"
+                                : ""}
+                            aria-current={`${currentPath === "about" ? "page" : ""}`}
+                            >About &amp; Contact</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
 </header>
-<script>
-    // This is for our mobile menu
-    const menu = document.getElementById("menu");
-    const menuButton = document.querySelectorAll(".menu-toggle");
-    menuButton.forEach((button) => {
-        button.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-            menu.classList.toggle("w-full");
-            menu.classList.toggle("h-screen");
-        });
-    });
-</script>
+
+<style>
+    .header__nav--is-visible {
+        display: block;
+    }
+    .header__trigger-icon::before,
+    .header__trigger-icon::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: inherit;
+        height: inherit;
+        background-color: currentColor;
+        transition: 0.2s;
+    }
+    .header__trigger-icon::before {
+        transform: translateY(-5px);
+    }
+    .header__trigger-icon::after {
+        transform: translateY(5px);
+    }
+    .header__trigger[aria-expanded="true"] {
+        @apply bg-yellow-300;
+    }
+    .header__trigger[aria-expanded="true"] .header__trigger-icon {
+        background-color: transparent;
+    }
+    .header__trigger[aria-expanded="true"] .header__trigger-icon::before {
+        transform: rotate(45deg);
+    }
+    .header__trigger[aria-expanded="true"] .header__trigger-icon::after {
+        transform: rotate(-45deg);
+    }
+</style>
