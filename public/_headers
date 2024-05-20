@@ -9,4 +9,4 @@ https://:dusk-next.pages.dev/*
     Referrer-Policy: strict-origin
     Access-Control-Allow-Origin: https://www.madebydusk.com
     Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://dusk.report-uri.com/a/d/g"}],"include_subdomains":true}
-    Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com/beacon.min.js/vedd3670a3b1c4e178fdfb0cc912d969e1713874337387; style-src 'self'; object-src 'none'; base-uri 'self'; connect-src 'self'; font-src 'self'; frame-src 'self'; img-src 'self' data:; manifest-src 'self'; media-src 'self'; report-uri https://dusk.report-uri.com/r/d/csp/reportOnly; report-to default; worker-src 'none';
+    Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com/beacon.min.js; style-src 'self'; object-src 'none'; base-uri 'self'; connect-src 'self' https://cloudflareinsights.com/cdn-cgi/rum; font-src 'self'; frame-src 'self'; img-src 'self' data:; manifest-src 'self'; media-src 'self'; report-uri https://dusk.report-uri.com/r/d/csp/reportOnly; report-to default; worker-src 'none';
