@@ -4,17 +4,6 @@
 @tailwind variants;
 
 @layer base {
-    /* @font-face {
-        font-family: "Larken Fallback";
-        src: local("Georgia");
-    } */
-
-    /* @font-face {
-        font-family: "tabular-numbers";
-        src: local("charter"), local("cambria");
-        unicode-range: U+0030-0039;
-    } */
-
     @font-face {
         font-family: "Larken";
         src: url("/fonts/larken-variable.woff2") format("woff2"), url("/fonts/larken-variable.woff") format("woff");
@@ -23,14 +12,6 @@
         font-feature-settings: "case" 1, "liga" 1, "kern" 1;
         font-display: swap;
     }
-
-    /* body h1 {
-        letter-spacing: -0.3px;
-    }
-
-    body.font-loaded h1 {
-        letter-spacing: initial;
-    } */
 
     h1 {
         @apply text-5xl font-bold;
@@ -144,9 +125,4 @@
     .max-w-headline {
         max-width: 20ch;
     }
-
-    /* Images */
-    /* .img-fill>img {
-        object-fit: cover;
-    } */
 }
