@@ -50,13 +50,14 @@ const { title, url, pubDate, description, tags, image, alt } = Astro.props;
     <div class="col-span-4 md:col-span-3">
         <p>{description}</p>
     </div>
-    <figure class="mt-4 -mx-4 lg:-mx-8 col-span-4 aspect-[16/9]">
+    <figure class="mt-4 -mx-4 lg:-mx-8 col-span-4 aspect-video">
         <Picture
             src={image}
             formats={["avif", "webp"]}
             alt={alt}
             width="1280"
             height="960"
+            class:list={["w-full", "h-full", "object-cover"]}
         />
     </figure>
 </div>

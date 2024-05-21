@@ -13,11 +13,11 @@ interface Props {
 
 const { imagePath, alt, width, height, widths, classes } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/images/**/**/*.{jpeg,jpg,png}",
+    "/src/images/**/**/*.{jpeg,jpg,png,svg}",
 );
 if (!images[imagePath])
     throw new Error(
-        `"${imagePath}" does not exist in glob: "/src/images/**/**/*.{jpeg,jpg,png}"`,
+        `"${imagePath}" does not exist in glob: "/src/images/**/**/*.{jpeg,jpg,png,svg}"`,
     );
 ---
 

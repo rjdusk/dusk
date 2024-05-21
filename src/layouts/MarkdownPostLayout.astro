@@ -8,8 +8,7 @@ const { frontmatter, title, description, ogimage } = Astro.props;
     <article class="max-w-7xl mx-auto mb-8 lg:mb-16 px-4 lg:px-8">
         <header class="mb-8">
             <h1 class="mb-6 max-w-headline">{frontmatter.title}</h1>
-            <figure
-                class="mb-8 -mx-4 lg:-mx-8 bg-gray-100 aspect-w-16 aspect-h-9">
+            <figure class="mb-8 -mx-4 lg:-mx-8 bg-gray-100 aspect-video">
                 <Picture
                     src={frontmatter.image.url}
                     formats={["avif", "webp"]}
