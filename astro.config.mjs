@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-// import { loadEnv } from "vite";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
@@ -8,8 +7,8 @@ import postcssNesting from "tailwindcss/nesting";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import playformCompress from "@playform/compress";
+// import { loadEnv } from "vite";
 // import sentry from "@sentry/astro";
-
 // const env = loadEnv(process.env, process.cwd(), "");
 
 // https://astro.build/config
