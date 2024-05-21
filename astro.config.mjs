@@ -8,9 +8,9 @@ import postcssNesting from "tailwindcss/nesting";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import playformCompress from "@playform/compress";
-import sentry from "@sentry/astro";
+// import sentry from "@sentry/astro";
 
-const env = loadEnv(process.env, process.cwd(), "");
+// const env = loadEnv(process.env, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
@@ -39,14 +39,14 @@ export default defineConfig({
         JavaScript: true,
         SVG: false
     }),
-    sentry({
-        dsn: "https://c49bfa81828992749cf705acbf56772d@o4507291855290368.ingest.de.sentry.io/4507291858436176",
-        sourceMapsUploadOptions: {
-            project: "javascript-astro",
-            authToken: env.SENTRY_AUTH_TOKEN,
-            telemetry: false,
-        },
-    }),
+    // sentry({
+    //     dsn: "https://c49bfa81828992749cf705acbf56772d@o4507291855290368.ingest.de.sentry.io/4507291858436176",
+    //     sourceMapsUploadOptions: {
+    //         project: "javascript-astro",
+    //         authToken: env.SENTRY_AUTH_TOKEN,
+    //         telemetry: false,
+    //     },
+    // }),
     ],
     vite: {
         server: {
