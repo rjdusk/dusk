@@ -123,6 +123,10 @@
     }
 
     .max-w-headline {
-        max-width: 20ch;
+        max-width: 16ch;
+
+        @screen md {
+            max-width: 20ch;
+        }
     }
 }
