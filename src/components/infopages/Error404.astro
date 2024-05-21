@@ -4,29 +4,32 @@ import myImage from "../../images/error/cat-astronaut.svg";
 ---
 
 <section>
-  <div class="max-w-7xl mx-auto mb-8 lg:mb-16 px-4 lg:px-8">
-    <figure class="flex flex-col items-center justify-center">
-      <Image
-        src={myImage}
-        alt="A cute cat in space."
-        width={500}
-        height={362}
-      />
-      <figcaption class="text-xs text-gray-400 py-4">
-        <a href="https://storyset.com/cute" target="_blank"
-          >illustration by storyset</a
-        >
-      </figcaption>
-    </figure>
-    <h1 class="mt-8 mb-4 text-center">Doh!... that's a 404</h1>
-    <p class="text-center max-w-2xl mx-auto">
-      We're sorry, but the page you're trying to access is lost somwhere in
-      cyberspace. Don't worry, though - our team of astronaut cats are working
-      hard to retrieve it and bring it back to Earth.
-    </p>
+    <div class="max-w-7xl mx-auto mb-8 lg:mb-16 px-4 lg:px-8">
+        <figure class="flex flex-col items-center justify-center">
+            <Image
+                src={myImage}
+                alt="A cute cat in space."
+                width={500}
+                height={362}
+            />
+            <figcaption class="text-xs text-gray-400 py-4">
+                <a href="https://storyset.com/cute" target="_blank"
+                    >illustration by storyset</a
+                >
+            </figcaption>
+        </figure>
+        <h1 class="mt-8 mb-4 text-center">Doh!... that's a 404</h1>
+        <p class="text-center max-w-2xl mx-auto">
+            We're sorry, but the page you're trying to access is lost somwhere
+            in cyberspace. Don't worry, though - our team of astronaut cats are
+            working hard to retrieve it and bring it back to Earth.
+        </p>
 
-    <p class="mt-8 text-center">
-      <a href="/" class="btn-text">Go back</a>
-    </p>
-  </div>
+        <p class="mt-8 text-center">
+            <a href="/" class="btn-text">Go back</a>
+            <button onclick="throw new Error('This is a test error')">
+                Throw test error
+            </button>
+        </p>
+    </div>
 </section>
