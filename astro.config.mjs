@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import { loadEnv } from "vite";
+// import { loadEnv } from "vite";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
